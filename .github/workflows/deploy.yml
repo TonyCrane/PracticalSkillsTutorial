@@ -20,6 +20,6 @@ jobs:
         source_file: 'site/.'
         destination_repo: 'TonyCrane/slides'
         destination_branch: 'master'
-        destination_folder: 'RevealmdTemplate'
+        destination_folder: 'PracticalSkillsTutorial'
         user_email: 'tonycrane@foxmail.com'
         user_name: 'TonyCrane'
