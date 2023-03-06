@@ -1,0 +1,64 @@
+{
+	"Middle Layout": {
+		"scope": "markdown",
+		"prefix": "middle",
+		"body": [
+			"<div class=\"middle center\">",
+			"<div style=\"width: 100%\">",
+			"",
+			"$1",
+			"",
+			"</div>",
+			"</div>",
+			"",
+			"$0"
+		]
+	},
+	"hr": {
+		"scope": "markdown",
+		"prefix": "hr",
+		"body": [
+			"<hr/>",
+			"$0"
+		]
+	},
+	"Three Line Table": {
+		"scope": "markdown",
+		"prefix": "three-line",
+		"body": [
+			"<div class=\"three-line\">",
+			"",
+			"$1",
+			"",
+			"</div>",
+			"",
+			"$0"
+		]	
+	},
+	"Multi-Columns Wrapper": {
+		"scope": "markdown",
+		"prefix": "mul-cols",
+		"body": [
+			"<div class=\"mul-cols\">",
+			"<div class=\"col\">",
+			"",
+			"$1",
+			"",
+			"</div>",
+			"$0",
+			"</div>"
+		]
+	},
+	"Single Column Block": {
+		"scope": "markdown",
+		"prefix": "col",
+		"body": [
+			"<div class=\"col\">",
+			"",
+			"$1",
+			"",
+			"</div>",
+			"$0",
+		]
+	}
+}

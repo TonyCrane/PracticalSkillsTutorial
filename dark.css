@@ -1,0 +1,24 @@
+:root {
+  --r-background-color: #1d1d1d;
+  --r-main-color: #FFFFFFE6;
+  --r-link-color: #526cfe;
+  --r-link-color-hover: #3957ff;
+  --r-selection-background-color: #FFFFFFE6;
+  --r-selection-color: #1d1d1d;
+}
+
+.reveal h1, .reveal h2, .reveal h3,
+.reveal h4, .reveal h5, .reveal h6 {
+  color: #FFFFFF;
+}
+
+.reveal .slides {
+  border: 1.5px #444 solid;
+}
+
+.reveal hr {
+  border: 10px solid #1d1d1d;
+}
+.reveal .middle hr {
+  background: radial-gradient(ellipse at center,rgba(120, 148, 234, 0.324) 0,hsla(0, 0%, 100%, 0) 75%);
+}

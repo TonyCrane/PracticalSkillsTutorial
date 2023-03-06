@@ -1,0 +1,181 @@
+@import url(https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&family=Source+Code+Pro&family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700);
+@import url(https://gcore.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css);
+
+:root {
+  --r-main-font: "JetBrains Mono", "LXGW WenKai Screen", sans-serif;
+  --r-heading-font: "JetBrains Mono", "LXGW WenKai Screen", sans-serif;
+  --r-code-font: "JetBrains Mono", "LXGW WenKai Screen", sans-serif;
+}
+
+.reveal .slide-number {
+  font-size: 26px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+.reveal .slides {
+  border: 1.5px #ddd solid;
+  border-radius: 7px;
+  text-align: left;
+  font-weight: 300;
+}
+
+.reveal section {
+  padding: 20px 0;
+}
+
+.reveal p, .reveal li, .reveal center {
+  font-size: 30px;
+}
+.reveal h1, .reveal h2, .reveal h3, .reveal h4 {
+  font-weight: 700;
+}
+.reveal p, .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5 {
+  padding:  0 25px 0 25px;
+}
+
+.reveal pre {
+  font-size: 20px;
+  border-radius: 3mm;
+}
+.reveal pre code {
+  max-height: none;
+  border-radius: 3mm;
+  padding: 20px;
+  line-height: 28px;
+}
+.reveal pre code table {
+  font-size: inherit;
+}
+
+.reveal ul {
+  margin: 0 0 0 1.5em
+}
+.reveal ol {
+  margin: 0 0 0 2em;
+}
+.reveal li {
+  margin-top: 10px;
+}
+.reveal li + li {
+  margin-top: 10px;
+}
+.reveal ul {
+  display: block;
+  margin-right: 15px;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-align: left;
+  margin: 0 0 20px 0;
+  color: #222;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: normal;
+}
+.reveal h1 {
+  margin: 0 10 0 10;
+  font-size: 60px;
+}
+.reveal .middle h1 {
+  text-align: center;
+}
+.reveal h2 {
+  font-size: 48px;
+  border-bottom: 2px solid rgb(0, 63, 163);
+  padding-bottom: 20px;
+}
+.reveal h3 { font-size: 1.15em; }
+.reveal h4 { font-size: 1.05em; }
+
+.reveal .center {
+  text-align: center;
+}
+.reveal .middle {
+  height: 660px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+section .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.reveal hr {
+  border: 10px solid white;
+}
+.reveal .middle hr {
+  border: 0;
+  height: 2px;
+  background: radial-gradient(ellipse at center,rgba(1, 14, 54, 0.324) 0,hsla(0, 0%, 100%, 0) 75%);
+  margin-bottom: 40px;
+}
+
+.reveal table {
+  font-size: 30px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.three-line {
+  text-align: center;
+}
+.three-line > table {
+  border-top: 1.5pt solid;
+  border-bottom: 1.5pt solid;
+  text-align: center;
+  page-break-inside: avoid;
+  display: inline-table !important;
+}
+.three-line > table > tbody > tr > td {
+  border: none;
+  padding: 7px 15px;
+}
+.three-line > table > tbody > tr {
+  border: none;
+  padding: 7px;
+}
+.three-line > table > thead {
+  border-bottom: 0.75pt solid;
+  font-size: 0.9em;
+}
+.three-line > table th {
+  border: none;
+}
+section > table {
+  border: 1.5pt solid;
+  text-align: center;
+  page-break-inside: avoid;
+}
+section > table > tbody > tr > td {
+  border: 0.75pt solid;
+  padding: 7px;
+}
+section > table > tbody > tr {
+  border: 0.75pt solid;
+  padding: 7px;
+}
+section > table > thead {
+  border: 0.75pt solid;
+  font-size: 0.9em;
+}
+section > table th {
+  border: 0.75px solid;
+}
+
+.reveal .mul-cols {
+  display: flex;
+}
+.reveal .mul-cols .col {
+  width: 100%
+}
+
+html.print-pdf .reveal pre code {
+  font-family: var(--r-code-font) !important;
+}
