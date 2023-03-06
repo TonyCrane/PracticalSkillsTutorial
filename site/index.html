@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>2023春夏实用技能拾遗</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/simple.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/github.css" />
+
+    <link rel="stylesheet" href="./assets/custom.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+
+<div class="middle center">
+<div style="width: 100%">
+
+<img src="logo.png" style="margin-bottom: 1em">
+
+# 「实用技能拾遗」课程资料
+
+<hr/>
+
+2023 年春夏学期计算机学院朋辈辅学课程
+
+By [@TonyCrane](https://github.com/TonyCrane)
+
+</div>
+</div>
+
+</script></section><section  data-markdown><script type="text/template">
+
+## slides
+
+<div class="three-line">
+
+|课程|日期|完成情况|链接|
+|:--|:--|:--:|:--|
+|lec0: 课程前瞻|#TBD|✓|[lec0](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec0/)|
+|lec1: Git/GitHub 基础介绍|3.19|||
+|lec2: Shell 及部分命令行工具推荐|4.02|||
+|lec3: Markdown 语法及应用|4.16|||
+|lec4: LaTeX 排版简要介绍|#TBD|||
+|lec5: 如何排出规范、美观的文档|5.28|||
+|lec6: Docker 基础介绍|6.11|||
+
+</div>
+</script></section></div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000}, queryOptions);
+    </script>
+
+    <script src="https://cdn.tonycrane.cc/heti/heti.js"></script>
+    <script src="./assets/heti_worker.js"></script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>
