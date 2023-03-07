@@ -37,12 +37,12 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 |课程|日期|完成情况|链接|
 |:--|:--|:--:|:--|
-|lec0: 课程前瞻|#TBD|✓|[lec0](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec0/)|
-|lec1: Git/GitHub 基础介绍|3.19|||
-|lec2: Shell 及部分命令行工具推荐|4.02|||
-|lec3: Markdown 语法及应用|4.16|||
-|lec4: LaTeX 排版简要介绍|#TBD|||
-|lec5: 如何排出规范、美观的文档|5.28|||
-|lec6: Docker 基础介绍|6.11|||
+|lec0：课程前瞻|#TBD|✓|[lec0](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec0/)|
+|lec1：Git/GitHub 基础介绍|3.19|||
+|lec2：Shell 及部分命令行工具推荐|4.02|||
+|lec3：Markdown 语法及应用|4.16|||
+|lec4：LaTeX 排版简要介绍|#TBD|||
+|lec5：如何排出规范、美观的文档|5.28|||
+|lec6：Docker 基础介绍|6.11|||
 
 </div>
