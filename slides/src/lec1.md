@@ -564,8 +564,9 @@ target ...: prerequisites ...
 - [ajeetdsouza/zoxide](https://github.com/ajeetdsouza/zoxide)：cd 的增强版，自带 autojump 功能（Rust 实现）
 - [crate-ci/typos](https://github.com/crate-ci/typos)：文档/代码拼写检查（Rust 实现）
 - [root-project/cling](https://github.com/root-project/cling)：交互式 C++ 解释器（这下不是 Rust 了）
-
-（~~怎么写着写着就变成了 Rust CLI 程序推荐~~）
+- [ggreer/the_silver_searcher (ag)](https://github.com/ggreer/the_silver_searcher)：grep、ack 的高效替代品
+- [itchyny/mmv](https://github.com/itchyny/mmv)：批量化文件重命名
+- [tldr-pages/tldr](https://github.com/tldr-pages/tldr)：man 替代品，命令速查
 
 <!--s-->
 
