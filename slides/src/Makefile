@@ -1,6 +1,6 @@
 LECNO = 0
 
-.PHONY: live build all clean
+.PHONY: live build all clean live-home build-home
 
 live:
 	@echo "Previewing lec$(LECNO) slides..."

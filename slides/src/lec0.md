@@ -26,6 +26,10 @@ revealOptions:
 
 By [@TonyCrane](https://github.com/TonyCrane)
 
+<div style="text-align: right; margin-top: 1em;">
+<p>2023.3.19&emsp;&emsp;&emsp;</p>
+</div>
+
 </div>
 </div>
 
