@@ -217,3 +217,8 @@ html.print-pdf .reveal pre code {
 .reveal .heti-adjacent-quarter {
   margin-inline-end: -0.25em;
 }
+
+.reveal .slide-number {
+  left: 8px;
+  right: unset;
+}
