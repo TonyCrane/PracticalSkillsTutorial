@@ -38,7 +38,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 |课程|日期|完成情况|链接|
 |:--|:--|:--:|:--|
 |lec0：课程前瞻|3.19|✓|[lec0](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec0/)|
-|lec1：Shell 及部分命令行工具推荐|3.19|✓|[lec1](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec1/)|
+|lec1：Shell 基础及 CLI 工具推荐|3.19|✓|[lec1](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec1/)|
 |lec2：Git/GitHub 基础介绍|4.02|||
 |lec3：Markdown 语法及应用|4.16|||
 |lec4：LaTeX 排版简要介绍|#TBD|||

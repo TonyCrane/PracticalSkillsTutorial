@@ -18,7 +18,7 @@ revealOptions:
 
 <img src="logo.png" style="margin-bottom: 1em">
 
-# lec1：Shell 及部分命令行工具推荐
+# lec1：Shell 基础及 CLI 工具推荐
 
 <hr/>
 

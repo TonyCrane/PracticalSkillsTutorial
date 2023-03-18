@@ -29,4 +29,4 @@ all:
 
 clean:
 	@echo "Cleaning up..."
-	rm -rf ../../site/lec*
+	rm -rf ../../site/
