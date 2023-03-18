@@ -258,6 +258,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - diff：比较文件/目录内容
 - ln：创建链接
 - whereis/which：查找命令所在位置
+- curl：发送 HTTP 请求；wget：下载文件
 - ...
 
 <!--v-->
