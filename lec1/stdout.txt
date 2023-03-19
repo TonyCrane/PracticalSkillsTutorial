@@ -1,0 +1,9 @@
+2d1
+< #include <string>
+6,8c5,6
+<     string buf;
+<     getline(cin, buf);
+<     cout << "[+] Received: " << buf << endl;
+---
+>     cout << "print to stdout" << endl;
+>     cerr << "print to stderr" << endl;
