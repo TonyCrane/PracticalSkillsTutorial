@@ -45,13 +45,29 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - Git
     - Git 基础：文件管理、提交 commit、分支 branch、合并 merge
     - Git 进阶：修改历史、变基 rebase、远程版本库
-    - *略讲内容：钩子 hook、子模块 submodule
+    - *略讲内容：子模块 submodule
 - GitHub
     - GitHub 基本操作概述
     - issue 与 pull request
     - *略讲内容：GitHub Pages、GitHub Actions
 
 （不会讲解 Git 安装、稳定访问 GitHub 等内容）
+
+</script></section><section data-markdown><script type="text/template">
+
+## 我想让你 take-away 的内容
+
+一些我在初学的时候没有了解到，但我希望通过我的讲解你可以了解到的内容
+
+（也是我觉得很多人在讲授的时候可能缺少的我认为比较重要的内容）
+
+- Git commit message 编写规范（Angular）
+- 几种修改提交记录的方法
+- 远程仓库与 GitHub 的本质
+- GitHub 配置好邮箱的必要性
+- GitHub Issue 与 Pull Request 的相关注意事项
+- *签署 commit 的重要性
+
 
 </script></section><section data-markdown><script type="text/template">
 
@@ -88,7 +104,13 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 分布式：不需要联网，在自己的机器上就可以使用
     - 版本控制：记录、管理、回溯文件的修改历史
 - 官网：https://git-scm.com/
-- 和其他版本控制系统相比的优点：开源、快速、分布式、基于内容、分支管理……
+- 历史？
+    - Linus Torvalds 在开发 Linux 内核时由于当时使用的分布式版本控制系统 BitKeeper 对于免费版本加入了限制，于是开发了一款免费自由而且解决了历代 VCS 缺陷的版本控制系统 Git
+    - 2005.4.7，[Git 开始自托管](https://github.com/git/git/commit/e83c51633)；九天后，[Linux 转为使用 Git 作为 VCS](https://github.com/torvalds/linux/commit/1da177e4c)
+
+<div style="text-align: center;">
+<img src="lec2/git-history.png" width="60%" style="margin: 0 auto;">
+</div>
 
 </script></section><section data-markdown><script type="text/template">
 
@@ -97,6 +119,10 @@ By [@TonyCrane](https://github.com/TonyCrane)
 <div style="text-align: center;">
 <img src="lec2/model.png" width="100%" style="margin: 0 auto;">
 </div>
+
+<p style="font-size: 0.5em; opacity: 0.7;">
+本 slides 中所有图片均使用 excalidraw 原创绘制，转载请注明来源
+</p>
 
 </script></section><section data-markdown><script type="text/template">
 
@@ -148,12 +174,54 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 <img style="float: right; margin-right: 20px" width="40%" src="lec2/model-commit.png"/>
 
-- git commit
-    - commit message
-- git log
-- sha1 / ref / ^~
-- git checkout
-    - detached HEAD
+- 将暂存内容提交到本地仓库，生成一个新版本
+    - git commit：默认编辑器编辑提交信息
+    - git commit -m "*message*"
+    - -a (--all) 自动暂存所有更改的文件
+- 查看提交历史：git log
+    - --oneline：每一个提交一行
+    - --graph：显示分支结构
+    - --stat：显示文件删改信息
+    - -p：显示详细的修改内容
+- 每个提交都有一个唯一的 sha-1 标识符（40 位十六进制数）
+    - git show *id*：显示提交详细信息（*id* 在不重复前提下可以只写前几位）
+- 检出之前的某一版本：git checkout *id*
+
+</script></section><section data-markdown><script type="text/template">
+
+## 关于 commit message
+
+- 意义是什么：记录更改的原因/内容，方便定位/回溯（特别是合作项目）
+- Angular 规范（来源：[angular/angular:CONTRIBUTING.md](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format)）
+    ```text
+    <type>([scope]): <summary>
+
+    [body]
+
+    [footer]
+    ```
+    - type：更改类型（fix/feat/docs/refactor/perf/test/ci/...）
+        - 重大更改可以写 BREAKING CHANGE 或 DEPRECATED（全大写）
+    - scope：影响范围（可选，比如具体影响的模块等）
+    - summary：更改的简要描述，英文一般现在时，首字母小写句末无句号
+    - body：详细描述，可选
+    - footer：解决 issue 了可以写 Fixes #*id* 或 Closes #*id*
+
+</script></section><section data-markdown><script type="text/template">
+
+## detached HEAD 问题
+
+- 什么是 HEAD：当前工作区在提交历史中的指针
+- 什么是 detached HEAD：HEAD 指向某个历史提交，而不是某个“分支”
+- 什么情形会出现 detached HEAD
+    - git checkout *id*，此后的修改不会出现在任何分支
+    - 切换回 master 后会出现一条不属于任何分支的提交（相当于修改会丢失）
+
+<div style="text-align: center; margin-top: 10px;">
+<img src="lec2/git-detached.png" width="60%" style="margin: 0 auto;">
+</div>
+
+- 如何解决：在 F 的位置上 git checkout -b *branch* 创建新分支
 
 </script></section><section data-markdown><script type="text/template">
 
@@ -161,6 +229,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 - git branch
     - git show-branch
+- ref / ^~
 - git checkout
 - git diff
 
@@ -212,15 +281,6 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - git fetch / git pull
 - non-fast-forward
 - -> GitHub
-
-</script></section><section data-markdown><script type="text/template">
-
-## *hooks 钩子
-
-- .git/hooks
-- pre-commit prepare-commit-msg commit-msg post-commit
-- pre-receive update post-receive post-update
-- git help hooks
 
 </script></section><section data-markdown><script type="text/template">
 
