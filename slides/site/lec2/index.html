@@ -45,7 +45,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - Git
     - Git 基础：文件管理、提交 commit、分支 branch、合并 merge
     - Git 进阶：修改历史、变基 rebase、远程版本库
-    - *略讲内容：子模块 submodule
+    - *略讲内容：子模块 submodule、探索 Git 结构
 - GitHub
     - GitHub 基本操作概述
     - issue 与 pull request
@@ -170,6 +170,22 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 </script></section><section data-markdown><script type="text/template">
 
+## 关于 .gitignore
+
+- 存放在版本库根目录下的名为 .gitignore 的文件，规定忽略哪些文件
+- 语法
+    - \# 开头的行为注释
+    - \* 通配多个字符，\*\* 通配中间目录（有或无）
+        - \*.c 匹配所有 C 文件，a/\*\*/b 匹配 a/b、a/x/b、a/x/y/b 等
+    - / 开头只匹配根目录，否则匹配所有目录
+    - ! 取消忽略
+    - ...
+    - [Git - gitignore Documentation](https://git-scm.com/docs/gitignore)
+- git check-ignore -v *file*：查看某个文件是否被忽略，以及匹配的规则
+- 常用语言的 .gitignore 模板：[github/gitignore](https://github.com/github/gitignore)
+
+</script></section><section data-markdown><script type="text/template">
+
 ## 提交更改
 
 <img style="float: right; margin-right: 20px" width="40%" src="lec2/model-commit.png"/>
@@ -221,29 +237,76 @@ By [@TonyCrane](https://github.com/TonyCrane)
 <img src="lec2/git-detached.png" width="60%" style="margin: 0 auto;">
 </div>
 
-- 如何解决：在 F 的位置上 git checkout -b *branch* 创建新分支
+- 如何解决：在 F 的位置上 git checkout -b *branch* 创建并检出新分支
 
 </script></section><section data-markdown><script type="text/template">
 
 ## 分支
 
-- git branch
-    - git show-branch
-- ref / ^~
-- git checkout
-- git diff
+<img style="float: right; margin-right: 20px" width="40%" src="lec2/model-branch.png"/>
+
+- 创建分支
+    - git branch *name*：基于当前 HEAD
+    - git branch *name* *id*：基于 *id* 提交
+- 查看分支
+    - git branch（带 -a 显示远程分支）
+    - git show-branch 更详细
+- 切换分支
+    - git checkout *name*
+    - git checkout -b *name*：创建并切换
+- 内容比较
+    - git diff *branch1* *branch2*：比较两个分支
+    - git diff *branch*：比较工作区和分支
+    - git diff：比较工作区和暂存区
+
+</script></section><section data-markdown><script type="text/template">
+
+## 分支（续）
+
+如何更方便地定位提交
+
+- 什么是分支名：和 HEAD 一样，也是一个指针（实际上叫引用 ref）
+- 可以基于 ref 使用 ~ 或 ^ 定位父提交
+    - ~ 表示第一个父提交，~2 表示第一个父提交的第一个父提交
+    - ^ 表示第一个父提交，^2 表示第二个父提交
+- 一个提交可能会有多个父提交（merge commit）
+
+<div style="text-align: center;">
+<img src="lec2/git-relativeref.png" width="60%" style="margin: 0 auto;">
+</div>
 
 </script></section><section data-markdown><script type="text/template">
 
 ## 合并
 
-- git merge
-- merge conflict
-- git merge-base (?)
-- merge commit
-    - fast-forward / already up-to-date (?)
-- squash merge
-- -> GitHub
+- 将多个分支的更改都合并到当前分支：git merge *branch1* *branch2*...
+
+几种 merge 的情况
+
+- 当前分支只比被合并分支多提交：already up-to-date
+- 被合并分支只比当前分支多提交：fast-forward（将 HEAD 指向被合并分支）
+- 都有新的提交：产生一个 merge commit
+    - 有冲突需要手动解决冲突（add 后再次 commit 生成 merge commit）
+
+<div style="text-align: center;">
+<img src="lec2/git-merge1.png" width="68%" style="margin: 0 auto;">
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+
+## 合并（续）
+
+实际上 merge 操作一般都在 GitHub 上通过 PR 完成，两种特殊的 merge 方法：
+
+- squash merge：将目的分支多出的所有提交压缩为一个新提交并入当前分支
+- rebase：变基
+    - 命令行直接 rebase 会将当前分支接到目标分支后
+        - 这种情况会导致提交历史更改，同步会有冲突，合作时不推荐
+    - 通过 GitHub PR rebase merge 会将目标分支接到当前分支后
+
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec2/git-merge2.png" width="100%" style="margin: 0 auto;">
+</div>
 
 </script></section></section><section ><section data-markdown><script type="text/template">
 
@@ -259,13 +322,39 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 ## 修改提交历史
 
-- git reset (soft/mixed/hard)
-- git revert
-- git commit --amend
+- git 的提交历史也并不是完全不可修改的，有几种方式可以进行强制修改
+- ❗️如果项目已经公开，且有其他人协作，那就不应该修改任何提交历史
+
+几种修改的方式
+
+1. 不算是修改的修改：git revert *id*
+    - 生成一个新的提交，将目标提交的更改撤销
+    - 历史的所有提交都不会改变
+2. 修改最新提交的提交信息：git commit --amend
+    - 会弹出编辑器编辑提交信息（或直接用 -m "*message*" 指定）
+    - 只会修改最新提交的提交信息
+    - 本质上修改了提交历史记录，不建议在协作时使用
 
 </script></section><section data-markdown><script type="text/template">
 
-## rebase 变基
+## 修改提交历史（续）
+
+3. 回到之前某一提交的状态：git reset *id*
+    - 几种模式：
+        - --soft：只修改 HEAD 指针，不修改暂存区和工作区
+        - --mixed：修改 HEAD 指针和暂存区，不修改工作区（默认）
+        - --hard：修改 HEAD 指针、暂存区和工作区（完全回退）
+4. rebase：后面详细来说
+
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec2/git-changelog.png" width="80%" style="margin: 0 auto;">
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+
+## 修改提交历史 - rebase 变基
+
+TODO
 
 - git rebase -i
     - pick edit squash drop
@@ -273,6 +362,8 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </script></section><section data-markdown><script type="text/template">
 
 ## 远程版本库
+
+TODO
 
 - 远程版本库概念/模型
 - 裸版本库/权威版本库
@@ -286,9 +377,22 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 ## *submodule 子模块
 
+TODO
+
 - git submodule add
 - git submodule update
 - git submodule status
+
+</script></section><section data-markdown><script type="text/template">
+
+## *探索 Git 结构
+
+TODO
+
+- .git/objects
+- git cat-file -p / -t
+- .git/ref
+- 分支的本质
 
 </script></section></section><section ><section data-markdown><script type="text/template">
 
