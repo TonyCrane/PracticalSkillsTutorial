@@ -349,45 +349,104 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 ## 修改提交历史 - rebase 变基
 
-TODO
+- 前面说到的 rebase merge 是在不同分支之间变基的情况
+- rebase 也可以用在同一分支上，表现为修改提交历史
+- git rebase -i *id*：交互式 rebase
+    - 会弹出编辑器，可以对提交进行编辑，顺序从上到下
+    - pick：保留该提交
+    - edit：保留该提交，但会进入编辑状态
+    - squash：将该提交和上一个提交合并
+    - drop/删除整行：删除该提交
 
-- git rebase -i
-    - pick edit squash drop
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec2/git-rebase.png" width="70%" style="margin: 0 auto;">
+</div>
 
 <!--v-->
 
 ## 远程版本库
 
-TODO
+<img style="float: right; margin-right: 20px" width="40%" src="lec2/model-remote.png"/>
 
-- 远程版本库概念/模型
-- 裸版本库/权威版本库
-- git remote 设置
-- git push
-- git fetch / git pull
-- non-fast-forward
-- -> GitHub
+- 想一想 Git 这样的分布式 VCS 如何实现协作
+- -> 使用一个远程的“权威”版本库（remote repository）
+- 远程版本库也是一个普通的 git 版本库
+    - 通过 git clone *src* *dest* 可以将远程版本库克隆到本地
+        - 会自动建立 remote 关联，可通过 git remote 管理
+    - git push 会将本地的提交推送到远程版本库
+        - 无法直接 push 到远程版本库检出的分支中
+        - 因此远程一般使用裸版本库（--bare）
+    - git pull 会将远程版本库的提交拉取到本地
+        - 包含 git fetch 和 git merge 两个步骤
+
+<!--v-->
+
+## 如何理解远程版本库
+
+- 可以当作本地的一个 origin/master 分支
+    - *后面会提到，实际上是在另一个命名空间 remotes 中
+- 多的功能只有 fetch 更新这个分支，以及 push 推送到远程
+
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec2/git-remote.png" width="100%" style="margin: 0 auto;">
+</div>
+
+最后，如何让合作的人都能访问到远程版本库？
+
+- 放在服务器上通过 SSH/HTTPS/Git 原生协议等访问
+- 更方便的，放在 GitHub/GitLab 等托管网站上
 
 <!--v-->
 
 ## *submodule 子模块
 
-TODO
+首先，一个问题，一个 git 版本库中包含另一个版本库会发生什么？
 
-- git submodule add
-- git submodule update
-- git submodule status
+- git 会不允许正常 add/commit，警告这样 clone 时不会包含子版本库
+
+如何解决？
+
+- 通过 submodule 子模块来解决
+- git submodule add *url* *path*：添加子模块
+    - 信息存在 .gitmodules 中
+- 子模块更新后直接通过 git add/commit 即可（修改的只是一个 id）
+- git submodule update 将子模块更新到规定版本
+- git submodule status 查看子模块状态
+- git submodule init 更新 .git/config 配置
 
 <!--v-->
 
 ## *探索 Git 结构
 
-TODO
+所以……Git 到底是怎么记录的？.git 文件夹里到底都是什么？
 
-- .git/objects
-- git cat-file -p / -t
-- .git/ref
-- 分支的本质
+- .git/hooks：钩子脚本，可以在特定的操作时自动执行
+- info logs 存放信息、日志，不太重要，略过
+- .git/objects：存储的所有东西都在这里❗️
+    - 文件名是对象的 sha1，且头一个字节作为一层目录（加速文件系统）
+    - 通过 git cat-file -p *id* 可以查看对象内容（-t 查看类型）
+    - 三种对象类型：commit tree blob
+
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec2/git-objects.png" width="38%" style="margin: 0 auto;">
+</div>
+
+<!--v-->
+
+## *探索 Git 结构 - 分支究竟是什么
+
+- .git/HEAD：HEAD 指针，内容是当前最新提交 id
+- .git/refs：存放各种 ref 指针
+    - .git/refs/heads：存放本地分支指针
+    - .git/refs/remotes：存放远程分支指针
+    - .git/refs/tags：存放标签指针
+- master、origin/master 等实际上是缩写：
+    - master -> refs/heads/**master**
+    - origin/master -> refs/remotes/**origin/master**
+    - 缩写匹配顺序：*ref* -> refs/*ref* -> refs/tags/*ref* -> refs/heads/*ref* -> refs/remotes/*ref*
+- 所以，分支命名有一定要求：
+    - 可以包含 /（用来分层）但不能作为开头，/ 后面不能接 .（不能隐藏）
+    - 不能包含 .. 不能包括空格或其他空白字符
 
 <!--s-->
 
