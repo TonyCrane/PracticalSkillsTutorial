@@ -61,9 +61,11 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 （也是我觉得很多人在讲授的时候可能缺少的我认为比较重要的内容）
 
+- 什么是 tag，以及版本号的规范（SemVer）
 - Git commit message 编写规范（Angular）
 - 几种修改提交记录的方法
 - 远程仓库与 GitHub 的本质
+- *如何自行探索 Git 存储的奥秘
 - GitHub 配置好邮箱的必要性
 - GitHub Issue 与 Pull Request 的相关注意事项
 - *签署 commit 的重要性
@@ -222,6 +224,23 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - summary：更改的简要描述，英文一般现在时，首字母小写句末无句号
     - body：详细描述，可选
     - footer：解决 issue 了可以写 Fixes #*id* 或 Closes #*id*
+
+</script></section><section data-markdown><script type="text/template">
+
+## 所以版本控制的“版本”呢？
+
+- 创建标签：
+    - 轻量标签：git tag *tag* *id*（*id* 可选，默认为 HEAD）
+    - 附注标签：git tag -a *tag* -m "*message*" *id*
+- 查看标签：git tag
+- 版本号命名一般规范：[Semantic Versioning 2.0.0](https://semver.org/lang/zh-CN/)
+    - v*主版本号*.*次版本号*.*修订号*[-*预发布版本号*]
+    - 修订号：兼容修改，修正不正确的行为
+    - 次版本号：添加新功能，但是保持兼容
+    - 主版本号：不兼容的 API 修改
+        - 且为 0 时表示还在开发阶段，不保证稳定性
+    - 预发布版本号：alpha/beta/rc.1/rc.2/...
+    - e.g. v1.0.0-beta < v1.0.0-rc.1 < v1.0.0 < v1.0.1
 
 </script></section><section data-markdown><script type="text/template">
 
@@ -621,7 +640,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 <div class="middle center">
 <div style="width: 100%">
 
-# Part.6 Git 相关工具/资源
+# 总结
 
 </div>
 </div>
@@ -632,9 +651,9 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 Git 相关工具
 
-- gitui
-- lazygit
-- gitoxide
+- gitui：Git TUI 之一（Rust 实现）
+- lazygit：Git TUI 之一（Go 实现）
+- gitoxide：Git 的纯 Rust 实现（精简、高效、安全）
 
 Git 学习资源
 
@@ -646,7 +665,20 @@ Git 学习资源
 - [Learning Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
 - [Gazler/githug](https://github.com/Gazler/githug)
 
-</script></section></section><section  data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
+
+## take-away？
+
+- 什么是 tag，以及版本号的规范（SemVer）
+- Git commit message 编写规范（Angular）
+- 几种修改提交记录的方法
+- 远程仓库与 GitHub 的本质
+- *如何自行探索 Git 存储的奥秘
+- GitHub 配置好邮箱的必要性
+- GitHub Issue 与 Pull Request 的相关注意事项
+- *签署 commit 的重要性
+
+</script></section><section data-markdown><script type="text/template">
 
 <div class="middle center">
 <div style="width: 100%">
@@ -658,7 +690,7 @@ Git 学习资源
 **Questions?**
 
 </div>
-</div></script></section></div>
+</div></script></section></section></div>
     </div>
 
     <script src="./dist/reveal.js"></script>
