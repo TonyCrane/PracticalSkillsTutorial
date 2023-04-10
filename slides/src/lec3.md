@@ -40,12 +40,12 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 什么是 Markdown？它的本质是什么？
 - Markdown 语法概览
     - 基于 CommonMark 的语法标准概览
-- 其它 MarkUp 语言的快速简介
-    - reStructuredText
-    - AsciiDoc
+- Markdown 常用的扩展语法
+    - 表格、脚注、任务列表（markdown 侧）
+    - 数学公式、mermaid 图表（非 markdown 侧）
 - 支持 Markdown 的实用工具介绍
     - 文档编写：vscode mpe 插件、Marktext...
-    - 网站建设：mkdocs、hexo、sphinx...
+    - 网站建设：mkdocs、hexo、reveal-md...
 
 （更多关于如何规范编写文档、如何美化 markdown 主题等内容，将在后续课程中讲解）
 
@@ -55,15 +55,19 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 - Markdown 的本质？
 - Markdown 的“标准”语法？
+- Markdown 中插入数学公式、图表是什么原理，这和 markdown 本身有关吗？
 - Markdown != Typora！还有更多更好用的开源工具！
-- 除此之外还有其它文本标记语言，速通了解一下
-- 基于 Markdown 的更多好用网站建设工具
+- 基于 Markdown 的更多好用的文档编写/网站建设工具
 
 <!--v-->
 
 ## 如何自学本章节内容
 
-
+- Markdown CommonMark 标准文档 [spec.commonmark.org](https://spec.commonmark.org/)
+    - 其它方言标准也可通读参考
+- 多用，自己尝试使用并熟悉（推荐软件等见 slides 后面）
+- 通读本 slides 了解一些我推荐的工具
+    - 去看官网/官方文档，多用多熟悉
 
 <!--s-->
 
@@ -95,7 +99,6 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 可以通过纯文本来表示带有格式的文档，同时保证易读性
 - 语法简单，易于学习，易于使用
 - 可以轻松转换为 HTML（映射到 HTML 的子集）
-    - markdown 的**本质**实际上是对 HTML 各种标签的一种简化
 
 <div class="mul-cols">
 <div class="col">
@@ -130,6 +133,22 @@ This is a paragraph. and:
 
 </div>
 
+</div>
+
+<!--v-->
+
+## Markdown 的本质
+
+- 常见错误理解
+    - ~~Markdown <=> Typora：格式难看，字体难看，etc.~~
+    - ~~Markdown 是一种排版语言~~
+- Markdown 的**本质**是一种*标记语言*，是对 HTML 的一种简化
+- Markdown 只决定解析出的 HTML 是什么，不会决定任何视觉上的样式
+    - 所有最终视觉上的效果都由 HTML+CSS 决定
+    - 我的建议：将 markdown 和一切视觉效果解绑
+
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec3/essential.png" width="70%" style="margin: 0 auto;">
 </div>
 
 <!--v-->
@@ -480,7 +499,7 @@ int main() {
 <div class="col">
 
 - 感叹号-方括号-圆括号结合的形式
-- 图片名可以省略
+- 图片描述可以省略
 - 位置可以是链接，也可以是本地文件路径
 - 常规 md 语法插入图片无法调大小，使用 html img 的 style 可以调节
 - 软件一般可以帮你保存图片到某一目录
@@ -490,11 +509,11 @@ int main() {
 <div class="col">
 
 ```markdown
-![图片名](图片位置)
+![图片描述](图片位置)
 
 ![](图片位置)
 
-<img src="图片位置" alt="图片名" 
+<img src="图片位置" alt="图片描述" 
     style="..."/>
 ```
 
@@ -540,6 +559,16 @@ int main() {
 - 文本中使用 \<tag\> 这样的字样需要用 \ 转义
 - GitHub（GFM）仅支持少量 html，且不支持 css 样式
 - html 语法不赘述
+
+<!--s-->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# Part.3 常用扩展语法
+
+</div>
+</div>
 
 <!--v-->
 
@@ -603,22 +632,98 @@ section > .mul-cols > .col > table th {
 
 </div>
 
-<!--s-->
+<!--v-->
 
-<div class="middle center">
-<div style="width: 100%">
+## 脚注
 
-# Part.3 其它 MarkUp 语言简介
+<div class="mul-cols">
+<div class="col">
+
+- 使用 `[^脚注名]` 插入脚注
+- 在文中任意位置添加 `[^脚注名]: 脚注内容` 定义脚注内容
+- 脚注名只是标记、匹配使用的，可以是任何字符串
+    - 最终的编号一般由在文中出现的顺序决定
 
 </div>
+<div class="col">
+
+```markdown
+[^note]: note content
+
+footnote[^1] and note[^note]
+
+[^1]: footnote content
+```
+
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec3/footnote.png" width="70%" style="margin: 0 auto;">
+</div>
+
+</div>
+
 </div>
 
 <!--v-->
 
-## 什么是 MarkUp 语言？
+## 任务列表
 
+<div class="mul-cols">
+<div class="col">
 
+- 使用 `- [ ]` 插入未完成任务
+- 使用 `- [x]` 插入已完成任务
+- 任务列表可以和其它列表混合使用
+- 如 GitHub 这样的网站会自动加上 checkbox 支持修改
 
+</div>
+<div class="col">
+
+```markdown
+- [ ] task 1 - TODO
+- [x] task 2 - DONE
+- [ ] task 3 - TODO
+    - [ ] task 3.1
+    - [x] task 3.2
+- comment
+```
+
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec3/tasklist.png" width="60%" style="margin: 0 auto;">
+</div>
+
+</div>
+
+</div>
+
+<!--v-->
+
+## 那么……公式呢？
+
+- 严格来说这一直都不是 markdown 语法的一部分
+- 关于公式处理的一切都不在 markdown->HTML 的过程中
+- HTML 保留公式文本，交给 [MathJax](https://www.mathjax.org/) 或 [KaTeX](https://katex.org/) 等 js 库来处理
+- 一般使用一对 \$ 作为行内公式标记，一对 \$\$ 作为块级公式标记
+    - 可以更换，由具体 js 库决定
+    - 或者 markdown 解析器其实也可以插手此过程，比如 ```math
+- 内部公式语法 KaTeX/MathJax 均使用 LaTeX 公式语法，下次课详细讲解
+
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec3/math.png" width="70%" style="margin: 0 auto;">
+</div>
+
+<!--v-->
+
+## 流程图/时序图/甘特图/...
+
+- 非常常见的扩展之一，同样也不是 markdown 语法的一部分
+- 一般使用 [mermaid.js](https://mermaid.js.org/) 来处理、制图
+- 目前很多编辑器都自带 mermaid 支持，详见[官方文档集成部分](https://mermaid.js.org/ecosystem/integrations.html)
+- markdown 在这里做的只是将其转为 ”mermaid“ 语言的代码块，然后交给 mermaid.js 来识别并处理
+- 详细语法见 [mermaid.js 官方文档](https://mermaid.js.org/intro/)，用法非常丰富
+
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec3/mermaid.png" width="70%" style="margin: 0 auto;">
+</div>
 
 <!--s-->
 
@@ -632,6 +737,150 @@ section > .mul-cols > .col > table th {
 
 <!--v-->
 
+## 实用工具推荐
+
+- 文档编写类
+    - 💡&nbsp;利用 HTML+CSS 灵活的样式来进行排版
+    - 🏆&nbsp;个人首推 vscode + [markdown preview enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/) 插件
+    - 所见即所得的开源编辑器：[Mark Text](https://marktext.app/)
+    - 较好支持 markdown 的笔记软件：[obsidian](https://obsidian.md/)
+- 网站搭建类
+    - 💡&nbsp;利用 markdown 来大大减小编写 HTML 网页的工作量
+    - 🏆&nbsp;笔记类网站制作：[mkdocs](https://www.mkdocs.org/)、[docsify](https://docsify.js.org/#/)、...
+    - 🏆&nbsp;博客类网站制作：[hexo](https://hexo.io/zh-cn/)、[hugo](https://gohugo.io/)、...
+    - 🏆&nbsp;在线 slides 制作：[reveal-md](https://github.com/webpro/reveal-md)（[reveal.js](https://revealjs.com/)）、[Slidev](https://cn.sli.dev/guide/)、...
+    - 书籍类网站制作：[mdBook](https://rust-lang.github.io/mdBook/)、[d2lbook](https://book.d2l.ai/)、...
+    - “老式” Python 项目文档生成：[Sphinx](https://www.sphinx-doc.org/en/master/)（一般使用 [reST](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) 语法）
+
+<!--v-->
+
+## Markdown Preview Enhanced
+
+- vscode 插件：[Markdown Preview Enhanced](https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced)
+- 官网/文档：[shd101wyy.github.io/markdown-preview-enhanced](https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/)
+- 特性：
+    - 源码 <=> 预览 同步
+    - 导出 HTML、PDF、PNG、...，多种导出方式，**自定义主题**
+        - 基于 mpe 的主题自定义指南将在后续课程中介绍
+    - 支持数学公式、多种图表（mermaid、wavedrom、flow charts、...）
+    - TOC 目录、文件导入、admonition、CriticMarkup 等扩展语法
+    - 代码块执行（Code Chunk）
+    - 自定义 markdown parser 扩展等高级功能
+- 更多、更详细用法请见官方文档
+
+<!--v-->
+
+## mkdocs
+
+- 基于 python 的静态网站生成器，适合笔记本/文档类网站
+    - e.g. [note.tonycrane.cc](https://note.tonycrane.cc/)
+- 官网：[www.mkdocs.org](https://www.mkdocs.org/)；唯一推荐主题：[mkdocs-material](https://github.com/squidfunk/mkdocs-material)（[文档](https://squidfunk.github.io/mkdocs-material/)）
+- 使用 python-markdown，可方便配置具体扩展，material 插件也有语法扩展
+- 优点：简便灵活，主题自带功能丰富，插件多
+- 实现逻辑：
+    - 一切都在 mkdocs.yml 中进行配置，通过 nav 规定网站导航，从中读取 md 源文件，解析后嵌入主题的 HTML 框架中
+
+<div class="mul-cols">
+<div class="col">
+
+```shell
+$ pip install mkdocs # 安装
+$ mkdocs new <name>  # 新建
+$ mkdocs serve       # 实时预览
+$ mkdocs build       # 构建
+$ mkdocs gh-deploy   # 部署
+```
+
+</div>
+<div class="col">
+
+```text
+test/
+ ├── docs/       # 存放文档源码
+ │     └── index.md
+ └── mkdocs.yml  # 配置文件
+```
+
+</div>
+
+</div>
+
+<!--v-->
+
+## hexo
+
+- 基于 nodejs 的**博客**站点生成工具
+    - e.g. [blog.tonycrane.cc](https://blog.tonycrane.cc/)
+- 官网/文档：[hexo.io](https://hexo.io/zh-cn/index.html)
+- 有多种渲染器（markdown 解析器）可以选择
+- 优点：插件众多，主题众多，生态良好
+
+<div class="mul-cols">
+<div class="col">
+
+```shell
+$ npm install -g hexo-cli # 安装
+$ hexo init blog # 初始化
+$ npm install    # 初始化安装
+$ hexo s         # 实时预览
+$ hexo g         # 构建生成
+$ hexo d         # 部署
+```
+
+</div>
+<div class="col">
+
+```text
+├── _config.yml   # 配置文件
+├── package.json  # 应用信息
+├── scaffolds/    # 模板文件夹
+├── source/       # 源文件夹
+│     └── _posts/   # 稿件文件夹
+└── themes/       # 主题文件夹
+```
+
+</div>
+
+</div>
+
+<!--v-->
+
+## reveal-md
+
+- 基于 [reveal.js](https://revealjs.com/) 的一个包装，更易用
+    - e.g. 本课程全部 slides
+- GitHub：[webpro/reveal-md](https://github.com/webpro/reveal-md)，文档只有 README 那么多
+- 只是一个包装，主要内容都由 reveal.js 提供，详细用法要看那个文档
+- 优点：交互方便，二维组织结构，导出 PDF，演讲者模式，样式易编写
+- 缺点：页面内动画较复杂
+- 我的主题模板：[TonyCrane/slide-template](https://github.com/TonyCrane/slide-template)
+
+<div class="mul-cols">
+<div class="col">
+
+```yaml
+title: Web Page Title
+theme: simple
+highlightTheme: github
+revealOptions:
+    transition: 'slide'
+    transitionSpeed: fast
+    ...
+```
+
+</div>
+<div class="col">
+
+```shell
+$ npm install -g reveal-md
+$ reveal-md <file>.md -w
+$ reveal-md <file>.md
+$ # more args see README
+```
+
+</div>
+
+</div>
 
 <!--s-->
 
@@ -647,7 +896,11 @@ section > .mul-cols > .col > table th {
 
 ## take-away？
 
-
+- Markdown 的本质？
+- Markdown 的“标准”语法？
+- Markdown 中插入数学公式、图表是什么原理，这和 markdown 本身有关吗？
+- Markdown != Typora！还有更多更好用的开源工具！
+- 基于 Markdown 的更多好用的文档编写/网站建设工具
 
 <!--v-->
 
