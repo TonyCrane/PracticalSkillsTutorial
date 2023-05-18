@@ -3,7 +3,7 @@
 ## 课程介绍
 2023 年春夏学期浙江大学计算机学院朋辈辅学课程「实用技能拾遗」单周周日下午班。课程内容、目标为一些基础、实用但学校课程中并不会讲解的技能的介绍。
 
-具体课程安排见 <https://slides.tonycrane.cc/PracticalSkillsTutorial/lec0/>。
+课程内容索引见 <https://slides.tonycrane.cc/PracticalSkillsTutorial/>。
 
 ## 关于 slides
 ### 构建与部署
