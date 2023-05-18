@@ -222,3 +222,7 @@ html.print-pdf .reveal pre code {
   left: 8px;
   right: unset;
 }
+
+.katex {
+  font-size: 1em;
+}

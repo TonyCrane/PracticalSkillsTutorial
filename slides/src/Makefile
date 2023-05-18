@@ -4,11 +4,11 @@ LECNO = 0
 
 live:
 	@echo "Previewing lec$(LECNO) slides..."
-	-@reveal-md lec$(LECNO).md -w --scripts https://cdn.tonycrane.cc/heti/heti.js,heti_worker.js || true
+	-@reveal-md lec$(LECNO).md -w --scripts https://cdn.tonycrane.cc/heti/heti.js,heti_worker.js --template template.html || true
 
 build:
 	@echo "Building lec$(LECNO) slides..."
-	@reveal-md lec$(LECNO).md --scripts https://cdn.tonycrane.cc/heti/heti.js,heti_worker.js --static ../site/lec$(LECNO) --assets-dir assets
+	@reveal-md lec$(LECNO).md --scripts https://cdn.tonycrane.cc/heti/heti.js,heti_worker.js --template template.html --static ../site/lec$(LECNO) --assets-dir assets
 	@rm ../site/lec$(LECNO)/lec$(LECNO).html
 
 live-home:
