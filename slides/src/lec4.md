@@ -1,5 +1,5 @@
 ---
-title: lec3 - 2023春夏实用技能拾遗
+title: lec4 - 2023春夏实用技能拾遗
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
@@ -674,8 +674,8 @@ a_{n1} & a_{n2} & \cdots & a_{nn}\\
 - 正确、合理地选择使用 displaystyle（以及 dfrac）
 - 除了变量以外都要用正体，特别是微分算子
     - ❌ \frac{d}{dx} $\frac{d}{dx}$ ✅ \frac{\mathrm d}{\mathrm dx} $\frac{\mathrm{d}}{\mathrm{d}x}$
-- 建议在微分算子之前加上 \, 稍增加间距
-    - ❌ \int x\mathrm dx $\int x\mathrm dx$ ✅ \int x\,\mathrm dx $\int x\\,\mathrm dx$
+- 建议在微分算子之前加上 \\, 稍增加间距
+    - ❌ \int x\mathrm dx $\int x\mathrm dx$ ✅ \int x\\,\mathrm dx $\int x\\,\mathrm dx$
 - 关于 \colon 用法，常用在映射上（标点），: 用在集合中（运算符）
     - ❌ f: A\to B $f: A\to B$ ✅ f\colon A\to B $f\\colon A\\to B$
     - ❌ \\{x\colon x=1\\} $\\{x\colon x=1\\}$ ✅ \\{x:x=1\\} $\\{x:x=1\\}$
