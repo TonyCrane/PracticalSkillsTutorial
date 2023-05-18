@@ -442,6 +442,7 @@ some text\footnote{footnote}
 
 - itemize 无序列表，enumerate 有序列表
     - \usepackage{enumerate} 可选 [(1)] [i.] [a)] 等指定编号格式
+    - \setcounter{enumi}{*i*} 后下一个 item 从 *i*+1 开始编号
 - \item 生成列表项，后接内容，\item[...] 可以自定义符号标签
     - 使用 description 环境这里标签会加粗左对齐表示关键字
 - 可以嵌套列表，最多四层
@@ -451,6 +452,7 @@ some text\footnote{footnote}
     \item First item
     \item[+] Second item
     \begin{enumerate}[i.]
+        \setcounter{enumi}{2}
         \item First subitem
         \item Second subitem
     \end{enumerate}
@@ -588,7 +590,7 @@ int main() {
 - 内部要穿插文字时使用 \text{...} 包裹
     - 不要滥用 \text，文字占多数时考虑分开为多个行内公式
 - 有两种样式，\displaystyle 和 \textstyle，即行间和行内
-    - 例如 \sum \int（巨算符）的上下标位置，\frac 的分数样式等会有不同
+    - 例如 \sum（巨算符）的上下标位置，\int 的高度，\frac 的分数样式等会有不同
     - 也可以使用 \limits 和 \nolimits 改变上下标位置
 
 <!--v-->
