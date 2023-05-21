@@ -1,0 +1,176 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage[draft]{graphicx}
+\usepackage{enumerate}
+\usepackage{amsmath}
+
+\title{第四讲：\LaTeX{}排版简要介绍}
+\author{TonyCrane\thanks{me@tonycrane.cc}\and 鹤翔万里\thanks{也是我}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\listoftables
+
+\section{段落}\label{sec:para}
+
+Several spaces     equal one.
+   Front spaces are ignored. 中文结尾
+不会添加空格。
+
+空行可以换段落。\par
+或者使用 \verb|\par| 也可以。
+
+This is a paragraph, and I want to break it. \\
+This is the next line, but it is not indented.
+
+This is a new paragraph.
+This is the next page.
+
+\% \& \# \{ \} \~{} \^{} \textbackslash
+
+`sing quote' ``double quote''
+
+difficult dif{}f{}icult
+
+\subsection{字体字号}
+
+\textbf{bold} \textit{italic} \texttt{typewriter}
+\textsf{sans serif} \textsc{Small Caps} \textsl{slanted}
+
+{\tiny tiny} {\scriptsize scriptsize} {\footnotesize footnotesize}
+{\small small} {\normalsize normalsize} {\large large}
+{\Large Large} {\LARGE LARGE} {\huge huge} {\Huge Huge}
+
+{\linespread{2.0}\selectfont This is a paragraph with 2.0 linespread.\\
+This is the next line and \quad space and \hspace{3em} more and
+\hspace{\fill}lol\par}
+
+\vspace{-1em}Next paragraph.\\[1em] and next line.
+
+\section{文档元素}
+
+some text\footnote{footnote}
+
+\begin{tabular}{l}
+\hline some text\footnotemark \\\hline
+\end{tabular}
+\footnotetext{table footnote}
+
+\includegraphics[width=10em,angle=30]{avatar}
+
+\begin{itemize}
+    \item First item
+    \item[+] Second item
+    \begin{enumerate}[i.]
+        % \setcounter{enumi}{2}
+        \item First subitem\label{item:subitem}
+        \item Second subitem
+    \end{enumerate}
+\end{itemize}
+
+\begin{description}
+    \item[First] First item
+    \item[Second] Second item
+\end{description}
+
+\begin{center}
+some text
+\end{center}
+\begin{flushright}some text\end{flushright}
+
+\centering some text
+
+\raggedleft some text
+\raggedright
+
+\begin{verbatim}
+#include <stdio.h>
+int main() {
+    printf("Hello, world!\n");
+    return 0;
+}
+\end{verbatim}
+
+\verb|\LaTeX| and \verb*|printf("Hello, world!\n");|
+
+\begin{tabular}{@{}c@{:}c|c}
+a & b & c \\
+\cline{2-3}
+d & e & f \\
+\end{tabular}
+
+\begin{table}
+\caption{TablesGenerator}\label{tab:table}
+\begin{tabular}{|lllll}
+\hline
+\multicolumn{1}{|l|}{a} & \multicolumn{1}{l|}{b} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} \\ \hline
+\multicolumn{1}{|l|}{}  & \multicolumn{2}{l|}{c}                         & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} \\ \hline
+\multicolumn{1}{|l|}{}  & \multicolumn{1}{l|}{}  &                       &                       &                       \\ \hline
+                        & \multicolumn{1}{l|}{}  & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} \\ \hline
+\end{tabular}
+\end{table}
+
+请见第\pageref{tab:table}页中的表\ref{tab:table}。本文第一个章节编号为\ref{sec:para}。\ref{item:subitem}
+
+\appendix
+
+\newpage
+
+\section{数学公式}
+
+行内公式：$a^2+b^2=c^2$、$\text{text}$、$no space$。
+
+行间公式：
+\begin{equation}
+    \int_{-\infty}^{+\infty} e^{-x^2} dx = \sqrt{\pi}
+\end{equation}
+$$
+a^2+b^2=c^2
+$$
+\[a^2+b^2=c^2\]
+
+\begin{displaymath}
+    a^2+b^2=c^2
+\end{displaymath}
+
+$a\,b$、$a\:b$、$a\;b$、$a\quad b$、$a\qquad b$、$a\!b$
+
+$a^b$、$a^{bc}$、$a^{b^c}$、$a_b$、$a_{bc}$、$a_{b_c}$、$a^b_c$、$\sum_{i=1}^{10}...$、$\int_a^b$、$\frac{1}{2}$
+
+$$\sum_{i=1}^{10}...\int_a^b\frac{1}{2}$$
+
+$\sin(\pi)$
+
+$\displaystyle\sum_{i=1}^{10}...\int_a^b\frac{1}{2}$、$\displaystyle\frac{1}{2}$、$\dfrac12$
+
+$$
+(abc), (\frac{1}{2}), \left(\frac{1}{2}\right), \left(\frac{1}{2}\right.
+$$
+
+\begin{align}
+a &= b + c  &     g &= h + i \\
+  &= d + e + f  &   &= j\notag
+\end{align}
+
+\begin{equation}
+\begin{aligned}
+a &= b + c  &     g &= h + i \\
+  &= d + e + f  &   &= j
+\end{aligned}
+\end{equation}
+
+\[
+\mathbf{A} = \begin{vmatrix}
+a_{11} & a_{12} & \cdots & a_{1n}\\
+a_{21} & a_{22} & \cdots & a_{2n}\\
+\vdots & \vdots & \ddots & \vdots\\
+a_{n1} & a_{n2} & \cdots & a_{nn}\\
+\end{vmatrix}
+\]
+
+\end{document}
