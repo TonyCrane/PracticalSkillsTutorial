@@ -1,17 +1,22 @@
----
-title: lec1 - 2023春夏实用技能拾遗
-separator: <!--s-->
-verticalSeparator: <!--v-->
-theme: simple
-highlightTheme: github
-css: custom.css
-revealOptions:
-    transition: 'slide'
-    transitionSpeed: fast
-    center: false
-    slideNumber: "c/t"
-    width: 1000
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>lec1 - 2023春夏实用技能拾遗</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/simple.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/github.css" />
+
+    <link rel="stylesheet" href="./assets/custom.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section ><section data-markdown><script type="text/template">
 
 <div class="middle center">
 <div style="width: 100%">
@@ -33,7 +38,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 本节内容
 
@@ -43,7 +48,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 了解 GNU make 的基本用法，以及如何自行学习
 - 了解一些常用的命令行工具
 
-<!--s-->
+</script></section></section><section ><section data-markdown><script type="text/template">
 
 <div class="middle center">
 <div style="width: 100%">
@@ -53,7 +58,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 什么是 Shell
 
@@ -73,7 +78,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 什么是 Terminal
 
@@ -99,7 +104,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 那什么才是 Shell
 
@@ -125,7 +130,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## Shell 与 Terminal
 
@@ -141,7 +146,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 如果定义了 ^C 应该复制，那么 Terminal 就会直接复制内容到剪贴板
     - 如果定义了 ^C 应该中断程序，那么 Terminal 就告诉 Shell，Shell 再通过 SIGINT 信号通知内核中断程序
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 为什么要用命令行？它能做什么？
 
@@ -155,7 +160,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 <img src="lec1/img1.png" width="65%" style="margin: 0 auto;">
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## *关于 zsh 的一些推荐配置
 
@@ -170,7 +175,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 具体安装方法等请见：<https://note.tonycrane.cc/cs/tools/shell/>
 
-<!--s-->
+</script></section></section><section ><section data-markdown><script type="text/template">
 
 <div class="middle center">
 <div style="width: 100%">
@@ -182,7 +187,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## Prompt 与路径意识
 
@@ -205,7 +210,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 路径相关命令
 
@@ -214,7 +219,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - *path* 可以是“相对路径”或者“绝对路径”
     - *path* 中 ~ 代表 home，. 代表当前路径，.. 代表上一级路径
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 文件/目录操作命令
 
@@ -231,7 +236,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - mv *src* *dst*：移动文件或目录（重命名）
 - find *path* -name *pattern*：在 *path* 下查找文件名匹配 *pattern* 的文件
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 文件内容查看命令
 
@@ -243,7 +248,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 空格翻页，回车下一行，q 退出
     - less 的功能更多，比如查找，更好的翻页等，用法见 less --help
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 其他命令
 
@@ -261,7 +266,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - curl：发送 HTTP 请求；wget：下载文件
 - ...
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 重定向
 
@@ -284,7 +289,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 管道
 
@@ -304,7 +309,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 与 cut / sort / uniq / awk 等命令搭配，处理文本数据
 - ...
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## *环境变量
 
@@ -322,7 +327,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
         - 仅在当前执行的 shell 中有效，如何持久化 -> 写入配置文件
     - unset *var*：删除环境变量，或通过 export 将值设为空
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## *配置文件
 
@@ -337,7 +342,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 且通常以 . 开头（隐藏），以 rc 结尾（run command）
     - 比如后面会说到的 ~/.vimrc
 
-<!--s-->
+</script></section></section><section ><section data-markdown><script type="text/template">
 
 <div class="middle center">
 <div style="width: 100%">
@@ -347,7 +352,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 什么是 vim？
 
@@ -363,7 +368,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - VSCode 的 [vim 插件](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)也是一个选择
     - neovim：全平台的 vim 升级版，可配合 [LunarVim](https://www.lunarvim.org/) 开箱即用
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 模式
 
@@ -379,7 +384,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## Cheat Sheet
 
@@ -389,7 +394,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 <img src="lec1/vimcheatsheet.png" width="70%" style="margin: 0 auto;">
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## Cheat Sheet
 
@@ -399,7 +404,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 <img src="lec1/vim-cheat-sheet.gif" width="70%" style="margin: 0 auto;">
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## vim 基础操作
 
@@ -409,7 +414,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 <img src="lec1/vi-vim-tutorial-1.gif" width="70%" style="margin: 0 auto;">
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## *vim 配置文件
 
@@ -431,7 +436,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     inoremap {<CR> {<CR>}<ESC>O
     ```
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## vim 学习资源
 
@@ -449,7 +454,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 ❗️4.8（第六周）周六下午 15:00~16:30 zcxgg 会用单独一次课专门讲解 vim
 
 
-<!--s-->
+</script></section></section><section ><section data-markdown><script type="text/template">
 
 <div class="middle center">
 <div style="width: 100%">
@@ -459,7 +464,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 为什么要用 make？
 
@@ -471,7 +476,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 有些时候会比 shell 脚本更容易编写
         - 处理依赖、读取命令行输入等 make 都会帮你完成
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 简介：如何编写 Makefile
 
@@ -493,7 +498,7 @@ target ...: prerequisites ...
     - 开头加 `@` 不会在终端输出命令本身
     - 开头加 `-` 会忽略命令执行失败的错误，继续向下执行
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 简介：Makefile 变量
 
@@ -509,7 +514,7 @@ target ...: prerequisites ...
     - 可以通过 $(shell command) 来将 command 的输出结果作为替换的值
     - 可以直接使用环境变量，如 $(PATH)
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 简介：make 命令
 
@@ -524,7 +529,7 @@ target ...: prerequisites ...
     - make -j N：并行执行 N 个任务
     - make -k：忽略错误，继续执行
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## more?
 
@@ -542,7 +547,7 @@ target ...: prerequisites ...
 - GNU make 官方文档：[GNU make](https://www.gnu.org/software/make/manual/make.html)
     
 
-<!--s-->
+</script></section></section><section ><section data-markdown><script type="text/template">
 
 <div class="middle center">
 <div style="width: 100%">
@@ -552,7 +557,7 @@ target ...: prerequisites ...
 </div>
 </div>
 
-<!--v-->
+</script></section><section data-markdown><script type="text/template">
 
 ## 一些推荐的命令行工具
 
@@ -569,7 +574,7 @@ target ...: prerequisites ...
 - [itchyny/mmv](https://github.com/itchyny/mmv)：批量化文件重命名
 - [tldr-pages/tldr](https://github.com/tldr-pages/tldr)：man 替代品，命令速查
 
-<!--s-->
+</script></section></section><section  data-markdown><script type="text/template">
 
 <div class="middle center">
 <div style="width: 100%">
@@ -581,4 +586,58 @@ target ...: prerequisites ...
 **Questions?**
 
 </div>
-</div>
+</div></script></section></div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default', // none/fade/slide/convex/concave/zoom
+        slideNumber: true,
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.KaTeX
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000}, queryOptions);
+    </script>
+
+    <script src="https://cdn.tonycrane.cc/heti/heti.js"></script>
+    <script src="./assets/heti_worker.js"></script>
+
+    <script>
+      Reveal.initialize(options);
+    </script>
+  </body>
+</html>

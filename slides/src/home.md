@@ -1,5 +1,5 @@
 ---
-title: 2023春夏实用技能拾遗
+title: 2023秋冬实用技能拾遗
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
@@ -21,22 +21,31 @@ revealOptions:
 .reveal .slide-number {
     display: none;
 }
+.reveal h2 {
+    text-align: center;
+}
 </style>
+
+<div class="center">
 
 ## 「实用技能拾遗」课程资料
 
-2023 年春夏学期计算机学院朋辈辅学课程 By [@TonyCrane](https://github.com/TonyCrane)
+2023 年秋冬学期竺可桢学院学业指导中心辅学计划
+
+程序设计辅学精品课 ——「实用技能拾遗」课程资料网站
+
+ By [@TonyCrane](https://github.com/TonyCrane) & [@45gfg9](https://github.com/45gfg9)
 
 <div class="three-line">
 
-|课程|日期|幻灯片|回放|
-|:--|:--|:--|:--|
-|lec0：课程前瞻|3.19|[lec0](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec0/)||
-|lec1：Shell 基础及 CLI 工具推荐|3.19|[lec1](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec1/)|[BV1T84y1w7wB](https://www.bilibili.com/video/BV1T84y1w7wB/)|
-|lec2：Git/GitHub 基础介绍|4.02|[lec2](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec2/)|[BV1og4y1u7XU](https://www.bilibili.com/video/BV1og4y1u7XU/)|
-|lec3：Markdown 语法及应用|4.16|[lec3](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec3/)|[BV1Ts4y1N7tu](https://www.bilibili.com/video/BV1Ts4y1N7tu/)|
-|lec4：LaTeX 排版简要介绍|5.21|[lec4](https://slides.tonycrane.cc/PracticalSkillsTutorial/lec4/)||
-|lec5：如何排出规范、美观的文档|5.28|||
-|lec6：Docker 基础介绍|6.11|||
+|课程|日期|讲师|幻灯片|回放|
+|:--|:--|:--|:--|:--|
+|lec0：前瞻：通往 Pro 的第一步|*TBD*|TonyCrane|||
+|lec1：Shell 基础及 CLI 工具推荐|*TBD*|45gfg9|||
+|lec2：Git/GitHub 基础介绍|*TBD*|TonyCrane|||
+|lec3：Markdown 语法及应用|*TBD*|TonyCrane|||
+|lec4：LaTeX 排版简要介绍|*TBD*|45gfg9|||
+|lec5：如何排出规范、美观的文档|*TBD*|TonyCrane||
+|lec6：网络/网站基础知识概述|*TBD*|45gfg9||
 
 </div>
