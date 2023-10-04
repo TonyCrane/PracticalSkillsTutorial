@@ -1,5 +1,5 @@
 ---
-title: lec1 - 2023春夏实用技能拾遗
+title: lec1 - 2023秋冬实用技能拾遗
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
@@ -13,27 +13,10 @@ revealOptions:
     width: 1000
 ---
 
-<div class="middle center">
-<div style="width: 100%">
-
-<img src="logo.png" style="margin-bottom: 1em">
-
-# lec1：Shell 基础及 CLI 工具推荐
-
-<hr/>
-
-2023 年春夏学期计算机学院朋辈辅学「实用工具拾遗」课程
-
-By [@TonyCrane](https://github.com/TonyCrane)
-
-<div style="text-align: right; margin-top: 1em;">
-<p>2023.3.19&emsp;&emsp;&emsp;</p>
-</div>
-
-</div>
-</div>
+<!-- .slide: data-background="lec1/cover.png" -->
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 本节内容
 
@@ -44,6 +27,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 了解一些常用的命令行工具
 
 <!--s-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -54,6 +38,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 什么是 Shell
 
@@ -74,6 +59,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 什么是 Terminal
 
@@ -100,6 +86,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 那什么才是 Shell
 
@@ -126,6 +113,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## Shell 与 Terminal
 
@@ -142,6 +130,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 如果定义了 ^C 应该中断程序，那么 Terminal 就告诉 Shell，Shell 再通过 SIGINT 信号通知内核中断程序
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 为什么要用命令行？它能做什么？
 
@@ -156,6 +145,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## *关于 zsh 的一些推荐配置
 
@@ -171,6 +161,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 具体安装方法等请见：<https://note.tonycrane.cc/cs/tools/shell/>
 
 <!--s-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -183,6 +174,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## Prompt 与路径意识
 
@@ -206,6 +198,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 路径相关命令
 
@@ -215,6 +208,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - *path* 中 ~ 代表 home，. 代表当前路径，.. 代表上一级路径
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 文件/目录操作命令
 
@@ -232,6 +226,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - find *path* -name *pattern*：在 *path* 下查找文件名匹配 *pattern* 的文件
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 文件内容查看命令
 
@@ -244,6 +239,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - less 的功能更多，比如查找，更好的翻页等，用法见 less --help
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 其他命令
 
@@ -262,6 +258,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - ...
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 重定向
 
@@ -285,6 +282,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 管道
 
@@ -305,6 +303,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - ...
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## *环境变量
 
@@ -323,6 +322,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - unset *var*：删除环境变量，或通过 export 将值设为空
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## *配置文件
 
@@ -338,6 +338,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 比如后面会说到的 ~/.vimrc
 
 <!--s-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -348,6 +349,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 什么是 vim？
 
@@ -364,6 +366,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - neovim：全平台的 vim 升级版，可配合 [LunarVim](https://www.lunarvim.org/) 开箱即用
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 模式
 
@@ -380,6 +383,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## Cheat Sheet
 
@@ -390,6 +394,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## Cheat Sheet
 
@@ -400,6 +405,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## vim 基础操作
 
@@ -410,6 +416,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## *vim 配置文件
 
@@ -432,6 +439,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     ```
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## vim 学习资源
 
@@ -450,6 +458,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 
 <!--s-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -460,6 +469,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 为什么要用 make？
 
@@ -472,6 +482,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
         - 处理依赖、读取命令行输入等 make 都会帮你完成
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 简介：如何编写 Makefile
 
@@ -494,6 +505,7 @@ target ...: prerequisites ...
     - 开头加 `-` 会忽略命令执行失败的错误，继续向下执行
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 简介：Makefile 变量
 
@@ -510,6 +522,7 @@ target ...: prerequisites ...
     - 可以直接使用环境变量，如 $(PATH)
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 简介：make 命令
 
@@ -525,6 +538,7 @@ target ...: prerequisites ...
     - make -k：忽略错误，继续执行
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## more?
 
@@ -543,6 +557,7 @@ target ...: prerequisites ...
     
 
 <!--s-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -553,6 +568,7 @@ target ...: prerequisites ...
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec1/background.png" -->
 
 ## 一些推荐的命令行工具
 
@@ -570,15 +586,4 @@ target ...: prerequisites ...
 - [tldr-pages/tldr](https://github.com/tldr-pages/tldr)：man 替代品，命令速查
 
 <!--s-->
-
-<div class="middle center">
-<div style="width: 100%">
-
-# 谢谢大家
-
-<hr/>
-
-**Questions?**
-
-</div>
-</div>
+<!-- .slide: data-background="lec1/ending.png" -->

@@ -1,5 +1,5 @@
 ---
-title: lec5 - 2023春夏实用技能拾遗
+title: lec5 - 2023秋冬实用技能拾遗
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
@@ -13,27 +13,10 @@ revealOptions:
     width: 1000
 ---
 
-<div class="middle center">
-<div style="width: 100%">
-
-<img src="logo.png" style="margin-bottom: 1em">
-
-# lec5：如何排版出规范、美观的文档
-
-<hr/>
-
-2023 年春夏学期计算机学院朋辈辅学「实用工具拾遗」课程
-
-By [@TonyCrane](https://github.com/TonyCrane)
-
-<div style="text-align: right; margin-top: 1em;">
-<p>2023.6.4&emsp;&emsp;&emsp;</p>
-</div>
-
-</div>
-</div>
+<!-- .slide: data-background="lec5/cover.png" -->
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 本节内容
 
@@ -54,6 +37,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 全部
 
 <!--s-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -64,6 +48,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 技术文档语言风格
 
@@ -82,27 +67,32 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 简单来说：时刻牢记用户导向，站在用户的角度审视自己的文档
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 文本结构建议
 
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 文本内容建议
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 注意标点符号
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 注意英文大小写
 
 
 <!--s-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -113,31 +103,37 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 关于字体
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 标点行首行尾禁则
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 标点符号宽度调整
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 段落调整与行内调整
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 中西文混排
 
 
 <!--s-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -148,25 +144,30 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## Word 的优点
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 如何使用 Word
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 样式配置
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 关于图片
 
 
 <!--s-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -177,41 +178,49 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 环境介绍
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 复习 markdown -> HTML
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## CSS 简介 - 样式与选择器
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## CSS 简介 - 盒模型
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## CSS 简介 - 布局
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 审视每一个 markdown 语法
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 样式编写示例/建议
 
 
 <!--s-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -222,26 +231,31 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 针对打印的样式
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 标题编号
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 表格样式
 
 
 <!--v-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 ## 结合 JavaScript 的文本处理
 
 
 <!--s-->
+<!-- .slide: data-background="lec5/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -252,8 +266,4 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
-
-<div class="middle center">
-<div style="width: 100%">
-
-# 谢谢大家
+<!-- .slide: data-background="lec5/ending.png" -->

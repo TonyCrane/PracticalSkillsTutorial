@@ -1,5 +1,5 @@
 ---
-title: 课程前瞻 - 2023春夏实用技能拾遗
+title: lec0 - 2023秋冬实用技能拾遗
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
@@ -16,6 +16,7 @@ revealOptions:
 <!-- .slide: data-background="lec0/cover.png" -->
 
 <!--s-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -26,6 +27,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## 为什么会有这门课程？
 
@@ -38,6 +40,7 @@ revealOptions:
 - ...
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## 如何学习这门课程？
 
@@ -54,6 +57,7 @@ revealOptions:
 - 不知道怎么运用魔法来上网❓98 上搜搜，这是不能公开碰的滑梯
 
 <!--s-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -64,6 +68,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## 关于讲师
 
@@ -81,6 +86,7 @@ revealOptions:
     - 笔记 https://note.tonycrane.cc/
 
 <!--s-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -91,6 +97,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## 课程安排
 
@@ -108,6 +115,7 @@ revealOptions:
 一共六～七次课程，具体时间可能会略有调整。
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## 双周周六 课程安排
 
@@ -128,6 +136,7 @@ revealOptions:
 \*: 由于第三次课和第四次课之间跨度较大，计划在第十周加一次线上课程，内容待定。
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## 单周周日 课程安排
 
@@ -147,6 +156,7 @@ revealOptions:
 \*: 这两周周末都是期中考试周，具体上课时间待定。
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## 单周周日 授课方式
 
@@ -161,6 +171,7 @@ revealOptions:
     - 课程回放：当次课程结束后会上传至 B 站 [@鹤翔万里](https://space.bilibili.com/171431343)账号上
 
 <!--s-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -171,6 +182,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## Git - 版本控制工具
 
@@ -180,6 +192,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## GitHub - 全球最大的代码托管网站
 
@@ -188,6 +201,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## Terminal/Shell - 用命令行控制电脑
 
@@ -196,6 +210,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## Vim - 命令行中的文本编辑器
 
@@ -207,6 +222,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## Markdown - 轻量级文本标记语言
 
@@ -215,6 +231,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## LaTeX - 纯代码式文档排版软件
 
@@ -223,6 +240,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## GNU Make/Cmake - 自动化项目编译执行
 
@@ -233,6 +251,7 @@ revealOptions:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec0/background.png" -->
 
 ## Docker - 轻量级虚拟化技术/容器化运行
 
@@ -243,15 +262,4 @@ revealOptions:
 </div>
 
 <!--s-->
-
-<div class="middle center">
-<div style="width: 100%">
-
-# 谢谢大家
-
-<hr/>
-
-**Questions?**
-
-</div>
-</div>
+<!-- .slide: data-background="lec0/ending.png" -->

@@ -1,5 +1,5 @@
 ---
-title: lec3 - 2023春夏实用技能拾遗
+title: lec3 - 2023秋冬实用技能拾遗
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
@@ -13,27 +13,10 @@ revealOptions:
     width: 1000
 ---
 
-<div class="middle center">
-<div style="width: 100%">
-
-<img src="logo.png" style="margin-bottom: 1em">
-
-# lec3：Markdown 语法及应用
-
-<hr/>
-
-2023 年春夏学期计算机学院朋辈辅学「实用工具拾遗」课程
-
-By [@TonyCrane](https://github.com/TonyCrane)
-
-<div style="text-align: right; margin-top: 1em;">
-<p>2023.4.16&emsp;&emsp;&emsp;</p>
-</div>
-
-</div>
-</div>
+<!-- .slide: data-background="lec3/cover.png" -->
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 本节内容
 
@@ -50,6 +33,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 （更多关于如何规范编写文档、如何美化 markdown 主题等内容，将在后续课程中讲解）
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 我想让你 take-away 的内容
 
@@ -60,6 +44,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 基于 Markdown 的更多好用的文档编写/网站建设工具
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 如何自学本章节内容
 
@@ -70,6 +55,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 去看官网/官方文档，多用多熟悉
 
 <!--s-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -80,6 +66,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## Markdown 诞生历史
 
@@ -92,6 +79,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 2016 年正式注册了 CommonMark（标准化）、GFM（GitHub 风格）等变体
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 什么是 Markdown
 
@@ -136,6 +124,7 @@ This is a paragraph. and:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## Markdown 的本质
 
@@ -152,6 +141,7 @@ This is a paragraph. and:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 各种语法标准……？
 
@@ -172,6 +162,7 @@ This is a paragraph. and:
     - ...
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 学习用软件
 
@@ -189,6 +180,7 @@ This is a paragraph. and:
     - ~~[Typora](https://typora.io/)~~：闭源付费编辑器，用户多但我不推荐
 
 <!--s-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -201,6 +193,7 @@ This is a paragraph. and:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 标题语法
 
@@ -241,6 +234,7 @@ This is a paragraph. and:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## *标题语法（Setext 式）
 
@@ -272,6 +266,7 @@ This is a paragraph. and:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 段落语法
 
@@ -289,6 +284,7 @@ This is a paragraph. and:
     - 使用多个空格可以使用 `&nbsp; &emsp;` 等 HTML 语法
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 引言
 
@@ -320,6 +316,7 @@ This is a paragraph. and:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 无序列表
 
@@ -352,6 +349,7 @@ This is a paragraph. and:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 有序列表
 
@@ -384,6 +382,7 @@ This is a paragraph. and:
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 分割线
 
@@ -413,6 +412,7 @@ _  __  _  __
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 代码块
 
@@ -455,6 +455,7 @@ int main() {
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 行内标记
 
@@ -492,6 +493,7 @@ int main() {
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 插入图片
 
@@ -522,6 +524,7 @@ int main() {
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 插入链接
 
@@ -551,6 +554,7 @@ int main() {
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 内联 HTML 语法
 
@@ -561,6 +565,7 @@ int main() {
 - html 语法不赘述
 
 <!--s-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -571,6 +576,7 @@ int main() {
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 表格
 
@@ -633,6 +639,7 @@ section > .mul-cols > .col > table th {
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 脚注
 
@@ -664,6 +671,7 @@ footnote[^1] and note[^note]
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 任务列表
 
@@ -696,6 +704,7 @@ footnote[^1] and note[^note]
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 那么……公式呢？
 
@@ -712,6 +721,7 @@ footnote[^1] and note[^note]
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 流程图/时序图/甘特图/...
 
@@ -726,6 +736,7 @@ footnote[^1] and note[^note]
 </div>
 
 <!--s-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -736,6 +747,7 @@ footnote[^1] and note[^note]
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## 实用工具推荐
 
@@ -753,6 +765,7 @@ footnote[^1] and note[^note]
     - “老式” Python 项目文档生成：[Sphinx](https://www.sphinx-doc.org/en/master/)（一般使用 [reST](https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html) 语法）
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## Markdown Preview Enhanced
 
@@ -769,6 +782,7 @@ footnote[^1] and note[^note]
 - 更多、更详细用法请见官方文档
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## mkdocs
 
@@ -806,6 +820,7 @@ test/
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## hexo
 
@@ -844,6 +859,7 @@ $ hexo d         # 部署
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## reveal-md
 
@@ -883,6 +899,7 @@ $ # more args see README
 </div>
 
 <!--s-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -893,6 +910,7 @@ $ # more args see README
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec3/background.png" -->
 
 ## take-away？
 
@@ -903,15 +921,4 @@ $ # more args see README
 - 基于 Markdown 的更多好用的文档编写/网站建设工具
 
 <!--v-->
-
-<div class="middle center">
-<div style="width: 100%">
-
-# 谢谢大家
-
-<hr/>
-
-**Questions?**
-
-</div>
-</div>
+<!-- .slide: data-background="lec3/ending.png" -->

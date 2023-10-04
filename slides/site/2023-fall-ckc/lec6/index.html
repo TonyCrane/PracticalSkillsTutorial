@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <title>lec6 - 2023秋冬实用技能拾遗</title>
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/simple.css" id="theme" />
+    <link rel="stylesheet" href="./css/highlight/github.css" />
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.js"></script>
+
+    <link rel="stylesheet" href="./assets/custom.css" />
+
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides"><section  data-markdown><script type="text/template">
+
+<!-- .slide: data-background="lec6/cover.png" -->
+
+</script></section><section  data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/ending.png" -->
+</script></section></div>
+    </div>
+
+    <script src="./dist/reveal.js"></script>
+
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
+    <script src="./plugin/zoom/zoom.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/math/math.js"></script>
+    <script>
+      function extend() {
+        var target = {};
+        for (var i = 0; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (source.hasOwnProperty(key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      }
+
+      // default options to init reveal.js
+      var defaultOptions = {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        transition: 'default',
+        slideNumber: true,
+        menu: {
+          themes: false,
+          width: "wide",
+          transitions: false,
+          markers: true,
+          hideMissingTitles: true,
+          openButton: true,
+          openSlideNumber: true,
+          custom: [
+            { title: 'Lectures', icon: '<i class="fas fa-external-link-alt">', content: getLecturesMenu() },
+          ]
+        },
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealZoom,
+          RevealNotes,
+          RevealMath.KaTeX,
+          RevealMenu
+        ]
+      };
+
+      // options from URL query string
+      var queryOptions = Reveal().getQueryHash() || {};
+
+      var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000}, queryOptions);
+
+      function getLecturesMenu() {
+        var lectures = [
+          { name: "#0 前瞻：通往 Pro 的第一步", src: "../lec0/"},
+          { name: "#1 Shell 基础及 CLI 工具推荐", src: "../lec1/"},
+          { name: "#2 Git/GitHub 基础介绍", src: "../lec2/"},
+          { name: "#3 Markdown 语法及应用", src: "../lec3/"},
+          { name: "#4 LaTeX 排版简要介绍", src: "../lec4/"},
+          { name: "#5 如何排出规范、美观的文档", src: "../lec5/"},
+          { name: "#6 网络/网站基础知识概述", src: "../lec6/"},
+        ]
+        var lecturesMenu = '<ul class="slide-menu-items">';
+        for (var i=0; i < lectures.length; i++) {
+          lecturesMenu += '<li class="slide-menu-item"><a href="' + lectures[i].src + '" style="text-decoration:none">' + lectures[i].name + '</a></li>';
+        }
+        lecturesMenu += '</ul>';
+        return lecturesMenu;
+      }
+    </script>
+
+    <script src="https://cdn.tonycrane.cc/heti/heti.js"></script>
+    <script src="./assets/heti_worker.js"></script>
+
+    <script>
+      Reveal.initialize(options).then(() => {
+        document.querySelector(".backgrounds").setAttribute("style", document.querySelector(".slides").style.cssText);
+      });
+      Reveal.on('overviewshown', event => {
+        document.querySelector(".backgrounds").setAttribute("style", "");
+      });
+      Reveal.on('overviewhidden', event => {
+        document.querySelector(".backgrounds").setAttribute("style", document.querySelector(".slides").style.cssText);
+      });
+      Reveal.on('resize', event => {
+        document.querySelector(".backgrounds").setAttribute("style", document.querySelector(".slides").style.cssText);
+      });
+    </script>
+  </body>
+</html>

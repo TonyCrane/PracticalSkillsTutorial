@@ -12,6 +12,7 @@ build:
 	@echo "Building lec$(LECNO) slides..."
 	@reveal-md lec$(LECNO).md $(FLAGS) --static $(BASE_DIR)/lec$(LECNO) --assets-dir assets
 	@rm $(BASE_DIR)/lec$(LECNO)/lec$(LECNO).html
+	@cp -r lec$(LECNO) $(BASE_DIR)/lec$(LECNO)/
 
 live-home:
 	@echo "Previewing home slides..."

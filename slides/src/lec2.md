@@ -1,5 +1,5 @@
 ---
-title: lec2 - 2023春夏实用技能拾遗
+title: lec2 - 2023秋冬实用技能拾遗
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
@@ -13,27 +13,10 @@ revealOptions:
     width: 1000
 ---
 
-<div class="middle center">
-<div style="width: 100%">
-
-<img src="logo.png" style="margin-bottom: 1em">
-
-# lec2：Git&hairsp;&hairsp;/&hairsp;&hairsp;GitHub 基础介绍
-
-<hr/>
-
-2023 年春夏学期计算机学院朋辈辅学「实用工具拾遗」课程
-
-By [@TonyCrane](https://github.com/TonyCrane)
-
-<div style="text-align: right; margin-top: 1em;">
-<p>2023.4.2&emsp;&emsp;&emsp;</p>
-</div>
-
-</div>
-</div>
+<!-- .slide: data-background="lec2/cover.png" -->
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 本节内容
 
@@ -49,6 +32,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 （不会讲解 Git 安装、稳定访问 GitHub 等内容）
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 我想让你 take-away 的内容
 
@@ -67,6 +51,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 如何自学本章节内容
 
@@ -84,6 +69,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - [Gazler/githug](https://github.com/Gazler/githug)
 
 <!--s-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -94,6 +80,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 什么是 Git？
 
@@ -110,6 +97,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## Git 模型
 
@@ -122,6 +110,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </p>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## Git 基础配置
 
@@ -138,6 +127,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
         - 同前，不加 --global
 
 <!--s-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -148,6 +138,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 文件暂存
 
@@ -166,6 +157,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 文件三个类别：未跟踪（Untracked）、已追踪（Tracked）、被忽略（Ignored）
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 关于 .gitignore
 
@@ -182,6 +174,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 常用语言的 .gitignore 模板：[github/gitignore](https://github.com/github/gitignore)
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 提交更改
 
@@ -201,6 +194,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 检出之前的某一版本：git checkout *id*
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 关于 commit message
 
@@ -221,6 +215,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - footer：解决 issue 了可以写 Fixes #*id* 或 Closes #*id*
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 所以版本控制的“版本”呢？
 
@@ -238,6 +233,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - e.g. v1.0.0-beta < v1.0.0-rc.1 < v1.0.0 < v1.0.1
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## detached HEAD 问题
 
@@ -254,6 +250,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 如何解决：在 F 的位置上 git checkout -b *branch* 创建并检出新分支
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 分支
 
@@ -274,6 +271,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - git diff：比较工作区和暂存区
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 分支（续）
 
@@ -290,6 +288,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 合并
 
@@ -307,6 +306,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 合并（续）
 
@@ -323,6 +323,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--s-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -333,6 +334,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 修改提交历史
 
@@ -350,6 +352,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 本质上修改了提交历史记录，不建议在协作时使用
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 修改提交历史（续）
 
@@ -365,6 +368,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 修改提交历史 - rebase 变基
 
@@ -382,6 +386,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 远程版本库
 
@@ -399,6 +404,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
         - 包含 git fetch 和 git merge 两个步骤
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## 如何理解远程版本库
 
@@ -416,6 +422,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 更方便的，放在 GitHub/GitLab 等托管网站上
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## *submodule 子模块
 
@@ -434,6 +441,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - git submodule init 更新 .git/config 配置
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## *探索 Git 结构
 
@@ -451,6 +459,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## *探索 Git 结构 - 分支究竟是什么
 
@@ -468,6 +477,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 不能包含 .. 不能包括空格或其他空白字符
 
 <!--s-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -478,6 +488,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## GitHub 基本操作
 
@@ -492,6 +503,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## GitHub 基本操作（续）
 
@@ -509,6 +521,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## GitHub 项目协作
 
@@ -526,6 +539,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 但也同样，请遵守规范，提问请提供足够信息
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## GitHub 项目协作（续）
 
@@ -542,6 +556,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 有些项目会自动进行 CI，如果 CI 未通过，请检查错误信息并修改
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## GitHub 项目协作（续）
 
@@ -559,6 +574,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
         - 可能会出现冲突，需要手动解决（通过 GitHub 或者根据指导在本地命令行进行）
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## GitHub 项目协作（续）
 
@@ -576,6 +592,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
     - 没有写权限：建议只提出修改建议，或再向源分支发起 PR
 
 <!--s-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -586,6 +603,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## *GitHub Pages
 
@@ -598,6 +616,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## *GitHub Actions
 
@@ -615,6 +634,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
         - ❗️建议自己建一个 repo，编写一些 workflow，在尝试中学习
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## *签署 commit
 
@@ -631,6 +651,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--s-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -641,6 +662,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## Git 相关工具/资源
 
@@ -661,6 +683,7 @@ Git 学习资源
 - [Gazler/githug](https://github.com/Gazler/githug)
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
 
 ## take-away？
 
@@ -674,15 +697,4 @@ Git 学习资源
 - *签署 commit 的重要性
 
 <!--v-->
-
-<div class="middle center">
-<div style="width: 100%">
-
-# 谢谢大家
-
-<hr/>
-
-**Questions?**
-
-</div>
-</div>
+<!-- .slide: data-background="lec2/ending.png" -->

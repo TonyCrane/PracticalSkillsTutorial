@@ -1,5 +1,5 @@
 ---
-title: lec4 - 2023春夏实用技能拾遗
+title: lec4 - 2023秋冬实用技能拾遗
 separator: <!--s-->
 verticalSeparator: <!--v-->
 theme: simple
@@ -13,27 +13,10 @@ revealOptions:
     width: 1000
 ---
 
-<div class="middle center">
-<div style="width: 100%">
-
-<img src="logo.png" style="margin-bottom: 1em">
-
-# lec4：LaTeX 排版简要介绍
-
-<hr/>
-
-2023 年春夏学期计算机学院朋辈辅学「实用工具拾遗」课程
-
-By [@TonyCrane](https://github.com/TonyCrane)
-
-<div style="text-align: right; margin-top: 1em;">
-<p>2023.5.21&emsp;&emsp;&emsp;</p>
-</div>
-
-</div>
-</div>
+<!-- .slide: data-background="lec4/cover.png" -->
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 本节内容
 
@@ -52,6 +35,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - LaTeX 数学公式编写规范
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 如何自学本章节内容
 
@@ -68,6 +52,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 本 slide Part.5 Part.6 最后一部分
 
 <!--s-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -78,6 +63,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 历史？
 
@@ -95,6 +81,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 缺点：学习成本高，不容易排错，不容易定制样式，不所见即所得……
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 关于发行版、引擎、编译指令
 
@@ -121,6 +108,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 |LuaTeX|PDF|luatex|lualatex|
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 如何编写/编译 LaTeX 文档
 
@@ -136,6 +124,7 @@ By [@TonyCrane](https://github.com/TonyCrane)
 - 更方便一点，可以使用在线编辑器 [Overleaf](https://www.overleaf.com/) 编写
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## Hello World
 
@@ -151,6 +140,7 @@ Hello World!
     - 通过 `latexmk -c` 清理编译过程中的临时文件
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 中文支持
 
@@ -173,6 +163,7 @@ Hello World!
     ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## LaTeX 命令、代码结构
 
@@ -196,6 +187,7 @@ Hello World!
 
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 文档类与宏包
 
@@ -215,6 +207,7 @@ Hello World!
     - `texdoc package` 可以查看宏包文档
 
 <!--s-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -225,6 +218,7 @@ Hello World!
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 段落
 
@@ -247,6 +241,7 @@ Several spaces     equal one.
 ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 断行和断页
 
@@ -267,6 +262,7 @@ This is the next page.
 ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 关于字符和标点
 
@@ -286,6 +282,7 @@ This is the next page.
     ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 字体样式和字号
 
@@ -306,6 +303,7 @@ This is the next page.
 ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 强制行距/间距
 
@@ -327,6 +325,7 @@ This is the next line and \quad space and \hspace{3em} more and
 ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## *页边距和分栏
 
@@ -345,6 +344,7 @@ This is the next line and \quad space and \hspace{3em} more and
 - 局部分栏 \begin{multicols}{2} \end{multicols}
 
 <!--s-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -355,6 +355,7 @@ This is the next line and \quad space and \hspace{3em} more and
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 章节和目录
 
@@ -372,6 +373,7 @@ This is the next line and \quad space and \hspace{3em} more and
 - \appendix 之后为附录，编号从 A 开始
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 生成标题页
 
@@ -392,6 +394,7 @@ This is the next line and \quad space and \hspace{3em} more and
 ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 脚注
 
@@ -411,6 +414,7 @@ some text\footnote{footnote}
 ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 图片
 
@@ -427,6 +431,7 @@ some text\footnote{footnote}
     - 显示等大图片框架，而非实际插入图片
 
 <!--s-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -437,6 +442,7 @@ some text\footnote{footnote}
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 列表
 
@@ -460,6 +466,7 @@ some text\footnote{footnote}
 ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 对齐环境
 
@@ -481,6 +488,7 @@ some text\footnote{footnote}
 ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 代码环境
 
@@ -504,6 +512,7 @@ int main() {
 ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 表格
 
@@ -521,6 +530,7 @@ int main() {
 - 推荐使用 [TablesGenerator](https://www.tablesgenerator.com/) 生成（因为真的太难写了）
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 浮动体
 
@@ -538,6 +548,7 @@ int main() {
 - 可以 \listoftables \listoffigures 生成目录
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## *补：交叉引用
 
@@ -551,6 +562,7 @@ int main() {
 - 不会记录编号的命令不可以使用（比如 \section*）
 
 <!--s-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -561,6 +573,7 @@ int main() {
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 数学模式
 
@@ -578,6 +591,7 @@ int main() {
 
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 公式排版基础
 
@@ -594,6 +608,7 @@ int main() {
     - 也可以使用 \limits 和 \nolimits 改变上下标位置
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 常用数学符号
 
@@ -610,6 +625,7 @@ int main() {
 - [LaTeX 数学公式大全 - lowa_BattleShip](https://www.luogu.com.cn/blog/IowaBattleship/latex-gong-shi-tai-quan) 也是一个不错的整合
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 特殊数学字体
 
@@ -629,6 +645,7 @@ int main() {
 |\mathscr{...}|$\mathscr{ABCDE}$|只有大写，依赖 mathrsfs|
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## align/aligned 对齐环境
 
@@ -645,6 +662,7 @@ int main() {
     - aligned 本身并不会进入数学模式，需要在数学模式中嵌套使用
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 矩阵环境
 
@@ -667,6 +685,7 @@ a_{n1} & a_{n2} & \cdots & a_{nn}\\
 ```
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 一些需要注意的规范写法
 
@@ -683,6 +702,7 @@ a_{n1} & a_{n2} & \cdots & a_{nn}\\
     - ❌ \\{x\colon x=1\\} $\\{x\colon x=1\\}$ ✅ \\{x:x=1\\} $\\{x:x=1\\}$
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 一些需要注意的规范写法（续）
 
@@ -702,6 +722,7 @@ a_{n1} & a_{n2} & \cdots & a_{nn}\\
 - 只要没有通过就是说明写法还是不规范（规范写法结果应该和预期完全一致）
 
 <!--s-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
@@ -712,6 +733,7 @@ a_{n1} & a_{n2} & \cdots & a_{nn}\\
 </div>
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 使用模版
 
@@ -728,6 +750,7 @@ a_{n1} & a_{n2} & \cdots & a_{nn}\\
     - 比裸着用 LaTeX 要好看很多
 
 <!--v-->
+<!-- .slide: data-background="lec4/background.png" -->
 
 ## 更多资料
 
@@ -748,25 +771,4 @@ a_{n1} & a_{n2} & \cdots & a_{nn}\\
 - 手写查询：[Detexify](http://detexify.kirelabs.org/classify.html)
 
 <!--s-->
-
-<div class="middle center">
-<div style="width: 100%">
-
-# 总结
-
-</div>
-</div>
-
-<!--v-->
-
-<div class="middle center">
-<div style="width: 100%">
-
-# 谢谢大家
-
-<hr/>
-
-**Questions?**
-
-</div>
-</div>
+<!-- .slide: data-background="lec4/ending.png" -->
