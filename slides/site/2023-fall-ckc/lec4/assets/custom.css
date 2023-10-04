@@ -231,3 +231,43 @@ html.print-pdf .reveal pre code {
 .katex {
   font-size: 1em;
 }
+
+.reveal .slide-menu-button {
+  top: 30px;
+}
+
+.slide-menu-wrapper .slide-menu {
+  background-color: #fff !important;
+}
+.slide-menu-wrapper .active-menu-panel li.active {
+  color: #000 !important;
+}
+.slide-menu-wrapper .slide-menu-item, .slide-menu-wrapper .slide-menu-item-vertical {
+  color: #555 !important;
+}
+.slide-menu-wrapper .active-menu-panel li.selected {
+  background-color: #ddd !important;
+  color: #000 !important;
+}
+.slide-menu-wrapper .slide-menu-item {
+  border-top: none !important;
+}
+.slide-menu-wrapper .slide-menu-items {
+  border-bottom: none !important;
+}
+.slide-menu-wrapper .slide-menu-panel a {
+  color: #000 !important;
+}
+.slide-menu-wrapper .slide-menu-toolbar > li {
+  color: #777 !important;
+}
+.slide-menu-wrapper .slide-menu-toolbar > li.active-toolbar-button {
+  color: #000 !important;
+  text-shadow: 0 1px white !important;
+}
+.slide-menu-wrapper .slide-menu-overlay.active {
+  opacity: 0.3 !important;
+}
+.slide-menu-wrapper .slide-menu.slide-menu--wide {
+  width: 450px !important;
+}

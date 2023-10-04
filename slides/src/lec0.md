@@ -13,25 +13,7 @@ revealOptions:
     width: 1000
 ---
 
-<div class="middle center">
-<div style="width: 100%">
-
-<img src="logo.png" style="margin-bottom: 1em">
-
-# 「实用技能拾遗」课程前瞻
-
-<hr/>
-
-2023 年春夏学期计算机学院朋辈辅学课程
-
-By [@TonyCrane](https://github.com/TonyCrane)
-
-<div style="text-align: right; margin-top: 1em;">
-<p>2023.3.19&emsp;&emsp;&emsp;</p>
-</div>
-
-</div>
-</div>
+<!-- .slide: data-background="lec0/cover.png" -->
 
 <!--s-->
 

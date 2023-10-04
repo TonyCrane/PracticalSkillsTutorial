@@ -24,6 +24,9 @@ revealOptions:
 .reveal h2 {
     text-align: center;
 }
+.reveal .slide-menu-button {
+    display: none;
+}
 </style>
 
 <div class="center">

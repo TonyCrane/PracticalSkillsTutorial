@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./dist/reveal.css" />
     <link rel="stylesheet" href="./dist/theme/simple.css" id="theme" />
     <link rel="stylesheet" href="./css/highlight/github.css" />
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js-menu@2.1.0/menu.js"></script>
 
     <link rel="stylesheet" href="./assets/custom.css" />
 
@@ -27,6 +28,9 @@
 }
 .reveal h2 {
     text-align: center;
+}
+.reveal .slide-menu-button {
+    display: none;
 }
 </style>
 
@@ -82,14 +86,27 @@
         progress: true,
         history: true,
         center: true,
-        transition: 'default', // none/fade/slide/convex/concave/zoom
+        transition: 'default',
         slideNumber: true,
+        menu: {
+          themes: false,
+          width: "wide",
+          transitions: false,
+          markers: true,
+          hideMissingTitles: true,
+          openButton: true,
+          openSlideNumber: true,
+          custom: [
+            { title: 'Lectures', icon: '<i class="fas fa-external-link-alt">', content: getLecturesMenu() },
+          ]
+        },
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealZoom,
           RevealNotes,
-          RevealMath.KaTeX
+          RevealMath.KaTeX,
+          RevealMenu
         ]
       };
 
@@ -97,13 +114,42 @@
       var queryOptions = Reveal().getQueryHash() || {};
 
       var options = extend(defaultOptions, {"transition":"slide","transitionSpeed":"fast","center":false,"slideNumber":"c/t","width":1000,"showSlideNumber":"none"}, queryOptions);
+
+      function getLecturesMenu() {
+        var lectures = [
+          { name: "#0 前瞻：通往 Pro 的第一步", src: "../lec0/"},
+          { name: "#1 Shell 基础及 CLI 工具推荐", src: "../lec1/"},
+          { name: "#2 Git/GitHub 基础介绍", src: "../lec2/"},
+          { name: "#3 Markdown 语法及应用", src: "../lec3/"},
+          { name: "#4 LaTeX 排版简要介绍", src: "../lec4/"},
+          { name: "#5 如何排出规范、美观的文档", src: "../lec5/"},
+          { name: "#6 网络/网站基础知识概述", src: "../lec6/"},
+        ]
+        var lecturesMenu = '<ul class="slide-menu-items">';
+        for (var i=0; i < lectures.length; i++) {
+          lecturesMenu += '<li class="slide-menu-item"><a href="' + lectures[i].src + '" style="text-decoration:none">' + lectures[i].name + '</a></li>';
+        }
+        lecturesMenu += '</ul>';
+        return lecturesMenu;
+      }
     </script>
 
     <script src="https://cdn.tonycrane.cc/heti/heti.js"></script>
     <script src="./assets/heti_worker.js"></script>
 
     <script>
-      Reveal.initialize(options);
+      Reveal.initialize(options).then(() => {
+        document.querySelector(".backgrounds").setAttribute("style", document.querySelector(".slides").style.cssText);
+      });
+      Reveal.on('overviewshown', event => {
+        document.querySelector(".backgrounds").setAttribute("style", "");
+      });
+      Reveal.on('overviewhidden', event => {
+        document.querySelector(".backgrounds").setAttribute("style", document.querySelector(".slides").style.cssText);
+      });
+      Reveal.on('resize', event => {
+        document.querySelector(".backgrounds").setAttribute("style", document.querySelector(".slides").style.cssText);
+      });
     </script>
   </body>
 </html>
