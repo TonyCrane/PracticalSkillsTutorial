@@ -22,33 +22,17 @@ revealOptions:
 
 - Git
     - Git 基础：文件管理、提交 commit、分支 branch、合并 merge
-    - Git 进阶：修改历史、变基 rebase、远程版本库
-    - *略讲内容：子模块 submodule、探索 Git 结构
+    - *略：Git 进阶：修改历史、变基 rebase、远程版本库
+    - *略：子模块 submodule、探索 Git 结构
 - GitHub
     - GitHub 基本操作概述
     - issue 与 pull request
-    - *略讲内容：GitHub Pages、GitHub Actions
+    - *略：GitHub Pages、GitHub Actions
+- 开源项目基础
+    - 定义、开源许可证
+    - 项目贡献基本操作（pull request）
 
 （不会讲解 Git 安装、稳定访问 GitHub 等内容）
-
-<!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-## 我想让你 take-away 的内容
-
-一些我在初学的时候没有了解到，但我希望通过我的讲解你可以了解到的内容
-
-（也是我觉得很多人在讲授的时候可能缺少的我认为比较重要的内容）
-
-- 什么是 tag，以及版本号的规范（SemVer）
-- Git commit message 编写规范（Angular）
-- 几种修改提交记录的方法
-- 远程仓库与 GitHub 的本质
-- *如何自行探索 Git 存储的奥秘
-- GitHub 配置好邮箱的必要性
-- GitHub Issue 与 Pull Request 的相关注意事项
-- *签署 commit 的重要性
-
 
 <!--v-->
 <!-- .slide: data-background="lec2/background.png" -->
@@ -95,6 +79,21 @@ revealOptions:
 <div style="text-align: center;">
 <img src="lec2/git-history.png" width="60%" style="margin: 0 auto;">
 </div>
+
+<!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
+
+## Git 安装
+
+- *Unix：包管理器直接装
+    - apt install git / brew install git / ...
+- Windows：
+    - https://git-scm.com/download/win
+    - 内带 Git Bash：
+        - 一个基于 MinGW 的类 Linux shell 环境
+        - 包含了很多常用的但 cmd/powershell 缺少（或用法差别很大）的命令
+    - 注意看安装时的选项，其中包括了一些使用范围的配置
+        - 注意环境变量
 
 <!--v-->
 <!-- .slide: data-background="lec2/background.png" -->
@@ -180,7 +179,7 @@ revealOptions:
 
 <img style="float: right; margin-right: 20px" width="40%" src="lec2/model-commit.png"/>
 
-- 将暂存内容提交到本地仓库，生成一个新版本
+- 将暂存内容提交到本地仓库，生成一个新节点
     - git commit：默认编辑器编辑提交信息
     - git commit -m "*message*"
     - -a (--all) 自动暂存所有更改的文件
@@ -237,7 +236,7 @@ revealOptions:
 
 ## detached HEAD 问题
 
-- 什么是 HEAD：当前工作区在提交历史中的指针
+- 什么是 HEAD：当前工作区在提交历史中的**指针**
 - 什么是 detached HEAD：HEAD 指向某个历史提交，而不是某个“分支”
 - 什么情形会出现 detached HEAD
     - git checkout *id*，此后的修改不会出现在任何分支
@@ -322,67 +321,79 @@ revealOptions:
 <img src="lec2/git-merge2.png" width="100%" style="margin: 0 auto;">
 </div>
 
+<!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
+
+## *进阶 - 修改历史
+
+- git revert *id*（用新提交抹掉以前提交的**效果**）
+- git commit --amend（修改最新提交的 message）
+- git reset *id*（回到某一提交的状态）
+- git rebase -i *id*（交互式 rebase 变基，修改提交历史）
+
+<div style="text-align: center; margin-top: 15px;">
+<img src="lec2/git-changelog.png" width="70%" style="margin: 0 auto;">
+</div>
+
+<div style="text-align: center; margin-top: 0px;">
+<img src="lec2/git-rebase.png" width="50%" style="margin: 0 auto;">
+</div>
+
+<!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
+
+## *进阶 - 探索 Git 结构
+
+所以……Git 到底是怎么记录的？.git 文件夹里到底都是什么？
+
+- .git/objects：存储的所有东西都在这里❗️
+    - 文件名是对象的 sha1，且头一个字节作为一层目录（加速文件系统）
+    - git cat-file -p *id* 查看对象内容（-t 查看类型 commit/tree/blob）
+
+<img style="float: right; margin-right: 20px; margin-bottom: -100px;" width="35%" src="lec2/git-objects.png"/>
+<!-- <div style="text-align: center; margin-top: 15px;">
+<img src="lec2/git-objects.png" width="38%" style="margin: 0 auto;">
+</div> -->
+
+- 分支指针（就是内容为 sha1 的文件）
+    - .git/HEAD：HEAD 指针，指向当前位置
+    - .git/refs：各种 ref 指针
+        - 子目录 heads/remotes/tags
+        - master -> refs/heads/master
+    - 因为分支名要作为文件名，所以要求：
+        - 可以包含 /（用来分层）但不能作为开头，/ 后面不能接 .（不能隐藏）
+        - 不能包含 .. 不能包括空格或其他空白字符
+
+<!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
+
+## Git 相关工具/资源
+
+Git 相关工具
+
+- gitui：Git TUI 之一（Rust 实现）
+- lazygit：Git TUI 之一（Go 实现）
+- gitoxide：Git 的纯 Rust 实现（精简、高效、安全）
+
+Git 学习资源
+
+- 《Git 版本控制管理》[ISBN 978-7-115-38243-6](http://oreilly.com.cn/index.php?func=book&isbn=978-7-115-38243-6)
+    - [*Version Control with Git*](https://www.oreilly.com/library/view/version-control-with/9780596158187/), Jon Loeliger, et al.
+- *Pro Git (2nd Edition)*, Scott Chacon, et al.
+    - https://git-scm.com/book/zh/v2
+- [git-flight-rules](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md)
+- [Learning Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
+- [Gazler/githug](https://github.com/Gazler/githug)
+
 <!--s-->
 <!-- .slide: data-background="lec2/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
 
-# Part.3 Git 进阶用法
+# Part.3 GitHub 基础知识/用法
 
 </div>
-</div>
-
-<!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-## 修改提交历史
-
-- git 的提交历史也并不是完全不可修改的，有几种方式可以进行强制修改
-- ❗️如果项目已经公开，且有其他人协作，那就不应该修改任何提交历史
-
-几种修改的方式
-
-1. 不算是修改的修改：git revert *id*
-    - 生成一个新的提交，将目标提交的更改撤销
-    - 历史的所有提交都不会改变
-2. 修改最新提交的提交信息：git commit --amend
-    - 会弹出编辑器编辑提交信息（或直接用 -m "*message*" 指定）
-    - 只会修改最新提交的提交信息
-    - 本质上修改了提交历史记录，不建议在协作时使用
-
-<!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-## 修改提交历史（续）
-
-3. 回到之前某一提交的状态：git reset *id*
-    - 几种模式：
-        - --soft：只修改 HEAD 指针，不修改暂存区和工作区
-        - --mixed：修改 HEAD 指针和暂存区，不修改工作区（默认）
-        - --hard：修改 HEAD 指针、暂存区和工作区（完全回退）
-4. rebase：后面详细来说
-
-<div style="text-align: center; margin-top: 15px;">
-<img src="lec2/git-changelog.png" width="80%" style="margin: 0 auto;">
-</div>
-
-<!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-## 修改提交历史 - rebase 变基
-
-- 前面说到的 rebase merge 是在不同分支之间变基的情况
-- rebase 也可以用在同一分支上，表现为修改提交历史
-- git rebase -i *id*：交互式 rebase
-    - 会弹出编辑器，可以对提交进行编辑，顺序从上到下
-    - pick：保留该提交
-    - edit：保留该提交，但会进入编辑状态
-    - squash：将该提交和上一个提交合并
-    - drop/删除整行：删除该提交
-
-<div style="text-align: center; margin-top: 15px;">
-<img src="lec2/git-rebase.png" width="70%" style="margin: 0 auto;">
 </div>
 
 <!--v-->
@@ -424,72 +435,6 @@ revealOptions:
 <!--v-->
 <!-- .slide: data-background="lec2/background.png" -->
 
-## *submodule 子模块
-
-首先，一个问题，一个 git 版本库中包含另一个版本库会发生什么？
-
-- git 会不允许正常 add/commit，警告这样 clone 时不会包含子版本库
-
-如何解决？
-
-- 通过 submodule 子模块来解决
-- git submodule add *url* *path*：添加子模块
-    - 信息存在 .gitmodules 中
-- 子模块更新后直接通过 git add/commit 即可（修改的只是一个 id）
-- git submodule update 将子模块更新到规定版本
-- git submodule status 查看子模块状态
-- git submodule init 更新 .git/config 配置
-
-<!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-## *探索 Git 结构
-
-所以……Git 到底是怎么记录的？.git 文件夹里到底都是什么？
-
-- .git/hooks：钩子脚本，可以在特定的操作时自动执行
-- info logs 存放信息、日志，不太重要，略过
-- .git/objects：存储的所有东西都在这里❗️
-    - 文件名是对象的 sha1，且头一个字节作为一层目录（加速文件系统）
-    - 通过 git cat-file -p *id* 可以查看对象内容（-t 查看类型）
-    - 三种对象类型：commit tree blob
-
-<div style="text-align: center; margin-top: 15px;">
-<img src="lec2/git-objects.png" width="38%" style="margin: 0 auto;">
-</div>
-
-<!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-## *探索 Git 结构 - 分支究竟是什么
-
-- .git/HEAD：HEAD 指针，内容是当前最新提交 id
-- .git/refs：存放各种 ref 指针
-    - .git/refs/heads：存放本地分支指针
-    - .git/refs/remotes：存放远程分支指针
-    - .git/refs/tags：存放标签指针
-- master、origin/master 等实际上是缩写：
-    - master -> refs/heads/**master**
-    - origin/master -> refs/remotes/**origin/master**
-    - 缩写匹配顺序：*ref* -> refs/*ref* -> refs/tags/*ref* -> refs/heads/*ref* -> refs/remotes/*ref*
-- 所以，分支命名有一定要求：
-    - 可以包含 /（用来分层）但不能作为开头，/ 后面不能接 .（不能隐藏）
-    - 不能包含 .. 不能包括空格或其他空白字符
-
-<!--s-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-<div class="middle center">
-<div style="width: 100%">
-
-# Part.4 GitHub 基本操作与项目协作
-
-</div>
-</div>
-
-<!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
-
 ## GitHub 基本操作
 
 - 首先，推荐一个浏览器插件：[Refined GitHub](https://github.com/refined-github/refined-github)
@@ -521,85 +466,34 @@ revealOptions:
 </div>
 
 <!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
 
-## GitHub 项目协作
+## GitHub 基本用法实操
 
-- issue
-    - 几种内容：反馈 bug、提出新功能、寻求帮助等
-    - 可以、而且建议使用 markdown 语法（特别是涉及到代码块的时候）
-    - 一些原则：
-        - 项目有明确规范/模板的时候请按照要求来写
-        - 在提 issue 前先搜索有没有已有的类似 issue
-        - 反馈 bug 时提供足够的信息，包括代码、错误、环境等
-    - 如果自己开的 issue 已经解决或者不存在，请自行关闭
-- discussion
-    - GitHub 新推出的板块，目前少部分项目会启用
-    - 类似帖子/社区，要比 issue 更随意很多，话题范围也更广
-    - 但也同样，请遵守规范，提问请提供足够信息
+- 新建 repo，基本设置
+- 添加代码：
+    - 从头开始的空项目：直接 clone
+    - 从本地非 git 项目上传：init 后修改 remote
+    - 修改、add、commit、push
+- 分支、合并：branch / GitHub 上操作
+- release：扩展的打 tag
+- 小组项目合作：协作者、私有 repo 权限管理
+    - pull request、merge、conflict 处理
 
 <!--v-->
 <!-- .slide: data-background="lec2/background.png" -->
 
-## GitHub 项目协作（续）
+## *签署 commit
+
+- 为什么建议签署 commit
+    - ["delete linux because it sucks"](https://github.com/torvalds/linux/tree/8bcab0346d4fcf21b97046eb44db8cf37ddd6da0)
+    - 回忆一下 GitHub 是如何关联 committer 和 GitHub 账号的
+    - 只要有了你提交使用的 email，别人就可以伪造你进行 commit
+- 如何通过 GPG 签署 commit：[GitHub 文档](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
+    - [GitHub 中提交 commit 时使用 GPG 进行签名](https://www.ffis.me/archives/1791.html)
+- 带有签名的 commit 在验证后会显示为 Verified，如果开启了 vigilant mode，则没有通过验证的 commit 会标记为 Unverified
 
 <div style="text-align: center;">
-<img src="lec2/workflow.png" width="50%" style="margin: 0 auto;">
-</div>
-
-- pull request（PR）
-    - 对于他人的 repo，你是没有办法直接 push 的，向其中添加代码更改都是通过 pull request 进行的
-    - 在提 pull request 的前**一定**要阅读贡献守则
-    - 提 PR 要按照要求写好标题和描述，修改的内容不要附带无用内容
-        - 如果解决了某 issue 的 bug 的话，描述中最好加上 fix/close #*issue_number* 这样的内容，会自动链接并在 PR merge 之后自动关闭 issue
-    - 一个 PR 中不要包含多个不相关的修改，如果有多个修改，应该分别提 PR
-    - 有些项目会自动进行 CI，如果 CI 未通过，请检查错误信息并修改
-
-<!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-## GitHub 项目协作（续）
-
-- pull request（续）
-    - 对于自己有权限修改的项目，也建议使用 PR 进行修改，这样更清晰
-        - 这时不必通过 fork 的方式，直接新建分支并修改即可
-    - review
-        - 即有权限的人对 PR 进行审查，提出意见
-        - review 可以针对某一行/几行代码进行
-        - 收到 change request 后，请按要求进行修改
-        - 一般的项目在 review 通过后才会 merge
-    - merge
-        - 几种方式：merge commit、squash merge、rebase merge
-        - 要求线性 log 的项目要使用 squash（一个 PR 就是一个 commit）
-        - 可能会出现冲突，需要手动解决（通过 GitHub 或者根据指导在本地命令行进行）
-
-<!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-## GitHub 项目协作（续）
-
-关于向已有 pull request 添加修改的几种常见情况
-
-- 向自己开启的 PR 中继续添加修改
-    - 直接在源分支中继续修改即可同步到 PR 中
-    - 所以在开 PR 之后、merge 之前请不要随意删除源分支，也不要继续向其中添加无关修改
-- 向他人开启的 PR 中添加修改
-    - 你有目标分支的写（write）权限
-        - 可以直接在 GitHub 中进行编辑，这时修改也会同步到 PR 中
-        - 也可以本地修改后 push 到源分支
-            - 推荐使用 GitHub CLI：gh pr checkout *pr_number*
-            - 直接 push 会有错误，但 git 会提示正确方式：git push *source_branch_url* HEAD:master
-    - 没有写权限：建议只提出修改建议，或再向源分支发起 PR
-
-<!--s-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-<div class="middle center">
-<div style="width: 100%">
-
-# Part.5 GitHub 进阶用法
-
-</div>
+<img src="lec2/github-sign.png" width="60%" style="margin: 0 auto;">
 </div>
 
 <!--v-->
@@ -633,30 +527,13 @@ revealOptions:
         - [GitHub Action 精华指南](https://zhuanlan.zhihu.com/p/164744104)、[GitHub Actions 入门教程 - 阮一峰](https://www.ruanyifeng.com/blog/2019/09/getting-started-with-github-actions.html)
         - ❗️建议自己建一个 repo，编写一些 workflow，在尝试中学习
 
-<!--v-->
-<!-- .slide: data-background="lec2/background.png" -->
-
-## *签署 commit
-
-- 为什么建议签署 commit
-    - ["delete linux because it sucks"](https://github.com/torvalds/linux/tree/8bcab0346d4fcf21b97046eb44db8cf37ddd6da0)
-    - 回忆一下 GitHub 是如何关联 committer 和 GitHub 账号的
-    - 只要有了你提交使用的 email，别人就可以伪造你进行 commit
-- 如何通过 GPG 签署 commit：[GitHub 文档](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits)
-    - [GitHub 中提交 commit 时使用 GPG 进行签名](https://www.ffis.me/archives/1791.html)
-- 带有签名的 commit 在验证后会显示为 Verified，如果开启了 vigilant mode，则没有通过验证的 commit 会标记为 Unverified
-
-<div style="text-align: center;">
-<img src="lec2/github-sign.png" width="60%" style="margin: 0 auto;">
-</div>
-
 <!--s-->
 <!-- .slide: data-background="lec2/background.png" -->
 
 <div class="middle center">
 <div style="width: 100%">
 
-# 总结
+# Part.4 开源项目基础
 
 </div>
 </div>
@@ -664,37 +541,135 @@ revealOptions:
 <!--v-->
 <!-- .slide: data-background="lec2/background.png" -->
 
-## Git 相关工具/资源
+## 什么是开源软件/自由软件
 
-Git 相关工具
+<img style="float: right; margin-right: 20px" width="30%" src="https://www.gnu.org/philosophy/category.zh-cn.svg"/>
 
-- gitui：Git TUI 之一（Rust 实现）
-- lazygit：Git TUI 之一（Go 实现）
-- gitoxide：Git 的纯 Rust 实现（精简、高效、安全）
+- 开源（Open Source）：公开源代码
+- 自由（Free）：遵循四项自由原则
+    - 自由运行、自由修改、自由分发拷贝、自由分发修改
+    - See also: [FSF](https://www.fsf.org/)、[什么是自由软件 - GNU](https://www.gnu.org/philosophy/free-sw.zh-cn.html)
+    - 自由和开源是完全不同的概念
+    - 自由软件也并不意味着不是商业软件
 
-Git 学习资源
+关于 Copyright 和 Copyleft：
 
-- 《Git 版本控制管理》[ISBN 978-7-115-38243-6](http://oreilly.com.cn/index.php?func=book&isbn=978-7-115-38243-6)
-    - [*Version Control with Git*](https://www.oreilly.com/library/view/version-control-with/9780596158187/), Jon Loeliger, et al.
-- *Pro Git (2nd Edition)*, Scott Chacon, et al.
-    - https://git-scm.com/book/zh/v2
-- [git-flight-rules](https://github.com/k88hudson/git-flight-rules/blob/master/README_zh-CN.md)
-- [Learning Git Branching](https://learngitbranching.js.org/?locale=zh_CN)
-- [Gazler/githug](https://github.com/Gazler/githug)
+- Copyright：版权所有，一切权利归软件作者所有
+    - Copyright © *最初发表年*-*最近更新年* *所有者*. All rights reserved.
+- Copyleft：版权归原作者所有，其他一切权利归任何人所有
+    - Copyleft 的一定是自由软件，GPL 是一种 Copyleft 许可证
 
 <!--v-->
 <!-- .slide: data-background="lec2/background.png" -->
 
-## take-away？
+## 关于开源协议/许可证（LICENSE）
 
-- 什么是 tag，以及版本号的规范（SemVer）
-- Git commit message 编写规范（Angular）
-- 几种修改提交记录的方法
-- 远程仓库与 GitHub 的本质
-- *如何自行探索 Git 存储的奥秘
-- GitHub 配置好邮箱的必要性
-- GitHub Issue 与 Pull Request 的相关注意事项
-- *签署 commit 的重要性
+- 没有许可证？原作者保留所有权利，不允许复制、分发、修改
+    - 使用的话需要联系原作者，见 [choosealicense.com/no-permission](https://choosealicense.com/no-permission/)
+
+<img style="float: right; margin-right: 20px; margin-left: -200px;" width="35%" src="lec2/licenses.png"/>
+
+- 常见软件开源许可证
+    - GPL（GNU General Public License）
+        - Copyleft、有“传染性”
+        - GPLv3、AGPLv3、LGPLv3
+    - Unlicense：放弃权利，进入公共领域
+    - 详见 [choosealincense.com](https://choosealicense.com/licenses/)（[appendix](https://choosealicense.com/appendix/)）
+- 在开源项目中使用许可证
+    - 根目录下包含文件 LICENSE，其中附上许可证内容
+    - GitHub 可以从模板生成一些 LICENSE，也会根据内容识别并显示许可证
+    - 采取多个许可证：都要放，并说明许可证作用范围
 
 <!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
+
+## 非软件类许可证
+
+主要是 CC（Creative Commons）系列许可证，用于“知识共享”，不用于软件
+
+- 官网：<https://creativecommons.org/share-your-work/cclicenses/>
+- CC 0：Public Domain，进入公共领域 <img style="margin: 0;" width="6%" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/cc-zero.png"/>
+- CC BY：Attribution，需要标明原作者 <img style="margin: 0;" width="6%" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by.png"/>
+- CC BY-SA：*ShareAlike，需要采用相同许可证 <img style="margin: 0;" width="6%" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png"/>
+- CC BY-NC：*NonCommercial，禁止用于商业用途 <img style="margin: 0;" width="6%" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc.png"/>
+- CC BY-NC-SA：三个要求均有 <img style="margin: 0;" width="6%" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png"/>
+- CC BY-ND / BY-NC-ND：*NoDerivs，禁止分发、修改 <img style="margin: 0;" width="6%" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nd.png"/> <img style="margin: 0;" width="6%" src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-nd.png"/>
+- *带有 NC/ND 的就不是自由协议，目前使用的都是 4.0 版本
+- 使用：
+    - 同样把内容写在 LICENSE 里，官网找到对应许可证，进入 /legalcode.txt
+        - GitHub 目前只会识别 CC 0 / CC BY / CC BY-SA
+    - "... is licensed under a Creative Commons ... 4.0 License"
+
+<!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
+
+## GitHub 项目贡献
+
+- 先看 README，有没有 CONTRIBUTING、CODE_OF_CONDUCT 等文件
+- issue
+    - 几种内容：反馈 bug、提出新功能、寻求帮助等
+    - 可以、而且建议使用 markdown 语法（特别是涉及到代码块的时候）
+    - 一些原则：
+        - 项目有明确规范/模板的时候请按照要求来写
+        - 在提 issue 前先搜索有没有已有的类似 issue
+        - 反馈 bug 时提供足够的信息，包括代码、错误、环境等
+    - 如果自己开的 issue 已经解决或者不存在，请自行关闭
+- discussion
+    - 类似帖子/社区，要比 issue 更随意很多，话题范围也更广
+    - 但也同样，请遵守规范，提问请提供足够信息
+
+<!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
+
+## GitHub 项目贡献 - Pull Request
+
+<div style="text-align: center;">
+<img src="lec2/workflow.png" width="50%" style="margin: 0 auto;">
+</div>
+
+- pull request（PR）
+    - 对于他人的 repo，你是没有办法直接 push 的，向其中添加代码更改都是通过 pull request 进行的
+    - 在提 pull request 的前**一定**要阅读贡献守则
+    - 提 PR 要按照要求写好标题和描述，修改的内容不要附带无用内容
+        - 如果解决了某 issue 的 bug 的话，描述中最好加上 fix/close #*issue_number* 这样的内容，会自动链接并在 PR merge 之后自动关闭 issue
+    - 一个 PR 中不要包含多个不相关的修改，如果有多个修改，应该分别提 PR
+    - 有些项目会自动进行 CI，如果 CI 未通过，请检查错误信息并修改
+
+<!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
+
+## GitHub 项目贡献 - Pull Request（续）
+
+- pull request（续）
+    - 对于自己有权限修改的项目，也建议使用 PR 进行修改，这样更清晰
+        - 这时不必通过 fork 的方式，直接新建分支并修改即可
+    - review
+        - 即有权限的人对 PR 进行审查，提出意见
+        - review 可以针对某一行/几行代码进行
+        - 收到 change request 后，请按要求进行修改
+        - 一般的项目在 review 通过后才会 merge
+    - merge
+        - 几种方式：merge commit、squash merge、rebase merge
+        - 要求线性 log 的项目要使用 squash（一个 PR 就是一个 commit）
+        - 可能会出现冲突，需要手动解决（通过 GitHub 或者根据指导在本地命令行进行）
+
+<!--v-->
+<!-- .slide: data-background="lec2/background.png" -->
+
+## GitHub 项目贡献 - Pull Request（续）
+
+关于向已有 pull request 添加修改的几种常见情况
+
+- 向自己开启的 PR 中继续添加修改
+    - 直接在源分支中继续修改即可同步到 PR 中
+    - 所以在开 PR 之后、merge 之前请不要随意删除源分支，也不要继续向其中添加无关修改
+- 向他人开启的 PR 中添加修改
+    - 你有目标分支的写（write）权限
+        - 可以直接在 GitHub 中进行编辑，这时修改也会同步到 PR 中
+        - 也可以本地修改后 push 到源分支
+            - 推荐使用 GitHub CLI：gh pr checkout *pr_number*
+            - 直接 push 会有错误，但 git 会提示正确方式：git push *source_branch_url* HEAD:master
+    - 没有写权限：建议只提出修改建议，或再向源分支发起 PR
+
+<!--s-->
 <!-- .slide: data-background="lec2/ending.png" -->
