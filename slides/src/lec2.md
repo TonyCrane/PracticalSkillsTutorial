@@ -22,8 +22,7 @@ revealOptions:
 
 - Git
     - Git 基础：文件管理、提交 commit、分支 branch、合并 merge
-    - *略：Git 进阶：修改历史、变基 rebase、远程版本库
-    - *略：子模块 submodule、探索 Git 结构
+    - *略：Git 进阶：修改历史、变基 rebase、远程版本、探索 Git 结构
 - GitHub
     - GitHub 基本操作概述
     - issue 与 pull request
