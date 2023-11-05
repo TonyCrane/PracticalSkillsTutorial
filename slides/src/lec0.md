@@ -136,7 +136,7 @@ revealOptions:
 |:--|:--|:--|
 |lec0：前瞻：通往 Pro 的第一步|10.14（秋四周）|TonyCrane|
 |lec1：Shell 基础及 CLI 工具推荐|10.22（秋五周）|45gfg9|
-|lec2：Git/GitHub 基础介绍|11.05（秋七周）|TonyCrane|
+|lec2：Git/GitHub 及开源基础|11.05（秋七周）|TonyCrane|
 |lec3：Markdown 语法及应用|11.19（冬一周）|TonyCrane|
 |lec4：LaTeX 排版简要介绍|12.03（冬三周）|45gfg9|
 |lec5：如何排出规范、美观的文档|12.17（冬五周）|TonyCrane|

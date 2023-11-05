@@ -32,7 +32,7 @@
     - 课程内容：
         - [lec0：前瞻：通往 Pro 的第一步](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/lec0/) by [@TonyCrane](https://github.com/TonyCrane)
         - [lec1：Shell 基础及 CLI 工具推荐](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/lec1/) by [@45gfg9](https://github.com/45gfg9)
-        - [lec2：Git/GitHub 基础介绍](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/lec2/) by [@TonyCrane](https://github.com/TonyCrane)
+        - [lec2：Git/GitHub 及开源基础](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/lec2/) by [@TonyCrane](https://github.com/TonyCrane)
         - [lec3：Markdown 语法及应用](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/lec3/) by [@TonyCrane](https://github.com/TonyCrane)
         - [lec4：LaTeX 排版简要介绍](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/lec4/) by [@45gfg9](https://github.com/45gfg9)
         - [lec5：如何排出规范、美观的文档](https://slides.tonycrane.cc/PracticalSkillsTutorial/2023-fall-ckc/lec5/) by [@TonyCrane](https://github.com/TonyCrane)

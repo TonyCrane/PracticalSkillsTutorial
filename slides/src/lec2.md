@@ -32,8 +32,6 @@ revealOptions:
     - 定义、开源许可证
     - 项目贡献基本操作（pull request）
 
-（不会讲解 Git 安装、稳定访问 GitHub 等内容）
-
 <!--v-->
 <!-- .slide: data-background="lec2/background.png" -->
 
