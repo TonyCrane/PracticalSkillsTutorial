@@ -19,6 +19,12 @@
     <div class="reveal">
       <div class="slides"><section ><section data-markdown><script type="text/template">
 
+<style>
+.serif {
+    font-family: Baskerville, "American Typewriter", Cambria, ui-serif, serif;
+}
+</style>
+
 <!-- .slide: data-background="lec1/cover.png" -->
 
 </script></section><section data-markdown><script type="text/template">
@@ -74,7 +80,7 @@
 - 臃肿，历史包袱太重
     - 家庭版？旗舰版？专业版？企业版？专业工作站版？
 - 适合使用，不适合开发
-    - 环境变量？缺 `dll` 文件？包管理器？
+    - 环境变量？缺 dll 文件？包管理器？
 - 闭源商业付费软件
 - 兼容性
     - Not software, but hardware
@@ -86,6 +92,7 @@
     - 错误报告服务权限提升（[CVE-2023-36874](https://www.cve.org/CVERecord?id=CVE-2023-36874)）
 
 <aside class="notes"><p>作为 CS 人</p>
+<p>注册表 1991 Windows 3.1</p>
 <p>s390x? armhf? ppc64?</p>
 </aside></script></section><section data-markdown><script type="text/template">
 <!-- .slide: data-background="lec1/background.png" -->
@@ -126,9 +133,9 @@ What after? 百花齐放
 ## 为什么用 Linux？
 
 <div style="text-align: center;">
-<img src="lec1/linus-torvald-first-linux-email.png" width="60%" style="margin: 0 auto;">
+<img src="lec1/linus-torvald-first-linux-email.png" width="65%" style="margin: 0 auto;">
 
-[comp.os.minix](https://groups.google.com/g/comp.os.minix/c/dlNtH7RRrGA/m/24ODVoLfAgAJ), 1991-08-25
+[comp.os.minix](https://groups.google.com/g/comp.os.minix/c/dlNtH7RRrGA/m/24ODVoLfAgAJ), 1991.8.25
 </div>
 
 </script></section><section data-markdown><script type="text/template">
@@ -142,12 +149,12 @@ What after? 百花齐放
 - Free
     - as in *Free Beer* and *Free Speech*
 - 轻量级
-    - Alpine Linux 的 Docker 镜像仅 5MB
+    - Alpine Linux 的 Docker 镜像仅 7 MB
 - 稳定性
     - [亲手造成的运维事故：在 Live CD 环境下部署并运行了 8 个月](https://v2ex.com/t/974678)
 - 兼容性
     - 树莓派等单板计算机
-    - 最不极端的一集：[在 Arduino Uno 上运行 Linux Kernel](https://hackaday.com/2023/10/13/because-you-can-linux-on-an-arduino-uno/)，主频 700Hz
+    - 最不极端的一集：[在 Arduino Uno 上运行 Linux Kernel](https://hackaday.com/2023/10/13/because-you-can-linux-on-an-arduino-uno/)，主频 700 Hz
 
 <div class="fragment">
 
@@ -215,7 +222,7 @@ What after? 百花齐放
 
 ## 什么是 Terminal - 起源
 
-> <span style="font-family: ui-serif;">"end point of a railway line," 1888, from terminal (adj.); **sense of "device for communicating with a computer" is first recorded 1954.** Earlier "final part of a word" (1831).</span>
+> <span class="serif">"end point of a railway line," 1888, from terminal (adj.); **sense of "device for communicating with a computer" is first recorded 1954.** Earlier "final part of a word" (1831).</span>
 >
 > -- [在线语源学词典 (Online Etymology Dictionary)](https://www.etymonline.com/word/terminal)
 
@@ -343,11 +350,12 @@ Hello world!
 ## \* 关于 zsh 的一些推荐配置
 
 - oh-my-zsh：<https://ohmyz.sh>，一个 zsh 的配置框架，支持主题、插件等配置
-<blockquote style="font-family: ui-serif; font-size: 16pt;">Oh My Zsh will not make you a 10x developer...but you may feel like one!</blockquote>
+<blockquote class="serif">Oh My Zsh will not make you a 10x developer...but you may feel like one!</blockquote>
 - Powerlevel10k（p10k）：一个 oh-my-zsh 的主题，配置简单，美观
 - 插件：
     - git：oh-my-zsh 自带插件，提供 git 相关的自动补全与 alias
-    - z：快速跳转到曾经跳转过的目录
+    - sudo：oh-my-zsh 自带插件，按两次 Esc 自动添加 sudo
+    - z：oh-my-zsh 自带插件，快速跳转到曾经跳转过的目录
     - zsh-autosuggestions：自动提示输入过的历史命令
     - zsh-syntax-highlighting：命令语法高亮
     - ...
@@ -617,7 +625,7 @@ Further reading:
 - vi 和 vim？
     - vi: 由 `ex` 发展而来的老牌文本编辑器
     - vim: Vi IMproved，vi 的升级版，功能更强大
-        - Bram Moolenaar, 1961 - 2023.8.3
+        - [Bram Moolenaar](https://en.wikipedia.org/wiki/Bram_Moolenaar), 1961 - 2023.8.3
 - 基于命令行的全平台文本/代码编辑器
 - 如何在你的电脑上使用 vim
     - Linux/macOS：直接通过包管理器（apt/yum/brew 等）安装
@@ -712,7 +720,7 @@ set incsearch       " 实时显示搜索结果
     - [vimcheatsheet.com](https://vimcheatsheet.com)
     - [ViEmu](http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html)
     - [vim.rtorr.com](https://vim.rtorr.com/lang/zh_cn) 在线文字版
-- Vim 从入门到精通：[wsdjeg/vim-galore-zh_cn](https://github.com/wsdjeg/vim-galore-zh_cn)
+- Vim 从入门到精通：[wsdjeg/vim-galore-zh_cn](https://gitlab.com/wsdjeg/vim-galore-zh_cn)
 
 </script></section></section><section ><section data-markdown><script type="text/template">
 <!-- .slide: data-background="lec1/background.png" -->
@@ -786,13 +794,9 @@ main.out: main.o aux.o
 
 这段 Makefile 干了什么？
 
-<!-- <div class="fragment"> -->
-
 - 定义了一个变量：`CFLAGS`，值为 "-std=c99"
 - 定义了产生 `main.out` 的步骤
 - 定义了从 `.c` 文件产生 `.o` 文件的步骤（编译）
-
-<!-- </div> -->
 
 </script></section><section data-markdown><script type="text/template">
 <!-- .slide: data-background="lec1/background.png" -->
@@ -876,7 +880,7 @@ Further reading:
 - [FFmpeg/FFmpeg](https://github.com/FFmpeg/FFmpeg)：强大的命令行音频、视频及字幕处理套件
 - [ImageMagick/ImageMagick](https://github.com/ImageMagick/ImageMagick)：强大的图片处理、转换及编辑套件
 - [aristocratos/btop](https://github.com/aristocratos/btop)：类似 top 的命令行资源监控工具~~（看门老大爷看板）~~
-- [fastfetch-cli/fastfetch](https://github.com/fastfetch-cli/fastfetch)：更漂亮地显示系统信息~~（装逼专用）~~
+- [dylanaraps/neofetch](https://github.com/dylanaraps/neofetch)：更漂亮地显示系统信息~~（装逼专用）~~
 - [tldr-pages/tldr](https://github.com/tldr-pages/tldr)：man 替代品，命令速查
 
 </script></section></section><section  data-markdown><script type="text/template">
