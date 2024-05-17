@@ -17,11 +17,874 @@
   </head>
   <body>
     <div class="reveal">
-      <div class="slides"><section  data-markdown><script type="text/template">
+      <div class="slides"><section ><section data-markdown><script type="text/template">
+
+<style>
+.serif {
+    font-family: Baskerville, "American Typewriter", Cambria, ui-serif, serif;
+}
+</style>
 
 <!-- .slide: data-background="lec6/cover.png" -->
 
-</script></section><section  data-markdown><script type="text/template">
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 本节内容
+
+<div class="mul-cols">
+<div class="col">
+
+- 网络
+    - IP 与 IP 地址
+    - TCP 与 UDP 协议概述
+    - 域名系统与 DNS
+    - HTTP 协议概述
+- 网站
+    - 服务器与客户端
+    - HTML、JavaScript 与 CSS
+    - TLS 与现代网络安全概览
+
+</div>
+<div class="col">
+
+- 我们会讲的内容
+    - 是什么，怎么用
+- 我们不会讲的内容
+    - 名词解释和定义
+
+</div>
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 如何自学本章节内容
+
+- [MDN Web Docs](https://developer.mozilla.org/zh-CN/)
+
+需要提前准备的工具：
+
+- [ncat](https://nmap.org/ncat/)
+
+<br>
+
+文中的部分图片来源于 [Wikimedia Commons](https://commons.wikimedia.org)，你可以通过点击图片查看其原始来源
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# Part.1 IP
+
+Internet Protocol
+
+</div>
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 背景
+
+- 互联网的前身：ARPANET
+  - 最初仅由 4 个节点组成，速度 50 kbps
+
+<!-- 1982 年 2 月的 TCP/IP 测试网络 → -->
+
+<!-- </div> -->
+
+<div class="center">
+<a href="https://commons.wikimedia.org/wiki/File:Arpanet_logical_map,_march_1977.png" target="_blank"><img src="lec6/Arpanet_logical_map,_march_1977.png" width="60%" style="margin: 0 auto;"></a>
+
+1977 年的 ARPANET 网络拓扑
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## ARPANET
+
+<blockquote class="serif" style="font-size: .6em">
+"We set up a telephone connection between us and the guys at SRI ...", Kleinrock ... said in an interview: "We typed the L and we asked on the phone,
+
+> "Do you see the L?"
+>
+> "Yes, we see the L," came the response.
+>
+> We typed the O, and we asked, "Do you see the O."
+>
+> "Yes, we see the O."
+>
+> Then we typed the G, and the system crashed ...
+
+Yet a revolution had begun" ....
+</blockquote>
+
+<aside class="notes"><p>1969 年 10 月 29 日，第一个数据包从 UCLA 发往 SRI</p>
+<p>SRI: Stanford Research Institute</p>
+</aside></script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## IPv4
+
+- Internet Protocol version 4
+    - v1 至 v3 主要作为实验用途，设计于 1973~1978 年间
+- 由 4 个<ruby>**段**<rp>(</rp><rt>octet</rt><rp>)</rp></ruby>组成，每个段 8 位，可以用任何表示 32 位整数的方式表示 IPv4 地址
+    - [10.78.18.216](http://10.78.18.216) = [0xA4E12D8](http://0xA4E12D8) = [172888792](http://172888792)
+    - 理论上有 $ 2^{32} $ 个不同的地址，但并非所有都可以使用，有复杂的地址分配机制
+    - 2019 年 11 月 25 日，RIPE NCC 宣布 IPv4 地址耗尽
+
+<div class="center">
+<img src="lec6/ipv4-octet.avif" width="60%" style="margin: 0 auto;">
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## IPv6
+
+- Internet Protocol version 6
+    - 1995 年发明
+    - 不存在 IPv5：IPv4 的直接后继就是 IPv6
+- 由 8 个<ruby>段<rp>(</rp><rt>hextet</rt><rp>)</rp></ruby>组成，每个段 16 位
+    - <a href="http://[2001:da8:e000:731a:ff00:0:0:642d]">2001:da8:e000:731a:ff00:0:0:642d</a>
+    - 理论上有 $ 2^{128} \approx 3.4 \times 10^{38} $ 个不同的地址
+    - 极大地简化了 IPv4 存在的地址分配问题
+    - 连续的全 0 段可以省略：<a href="http://[2001:da8:e000:731a:ff00::642d]">2001:da8:e000:731a:ff00::642d</a>
+    - 也有 IPv4-mapped IPv6 地址：<a href="http://[::ffff:10.78.18.216]">::ffff:10.78.18.216</a>
+    - <https://test-ipv6.com> 测试你的 IPv6 连接
+    - Linux 下有 ping6 命令
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 广域网与局域网
+
+- <ruby>广域网<rp>（</rp><rt>Wide Area Network</rt><rp>）</rp></ruby>：跨越大范围的网络，如互联网
+
+- <ruby>局域网<rp>（</rp><rt>Local Area Network</rt><rp>）</rp></ruby>：小范围的网络，如家庭、学校、公司内部的网络
+
+- 一般来说，局域网之间的主机可以互相访问，但其不能直接访问互联网
+    - 需要一个**路由器**连接不同层级的网络
+- 一台主机可以有多个 IP 地址
+    - 例如一个局域网内的主机可能有多个局域网 IP 和公网 IP
+    - 一个主机可以有多个网卡，每个网卡可以有多个 IP 地址
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 回环地址
+
+- <ruby>回环地址<rp>（</rp><rt>Loopback address</rt><rp>）</rp></ruby>：<ruby>127.0.0.1<rp>（</rp><rt>IPv4</rt><rp>）</rp></ruby> / <ruby>::1<rp>（</rp><rt>IPv6</rt><rp>）</rp></ruby> / <ruby>localhost<rp>（</rp><rt>主机名</rt><rp>）</rp></ruby>
+    - 用于主机自身的通信，不会发送到网络上
+
+<br>
+
+<div class="center">
+<img src="lec6/localhost-meme.avif" width="35%" style="margin: 0 auto;">
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 网关与子网掩码
+
+- <ruby>网关<rp>（</rp><rt>Gateway</rt><rp>）</rp></ruby>：将不同网络连接起来的设备
+    - 例如连接局域网和互联网的路由器
+    - 一般来说，局域网内的主机的网关是路由器的 IP 地址
+- <ruby>子网<rp>（</rp><rt>Subnet</rt><rp>）</rp></ruby>：将一个大的 IP 地址段划分为多个小的 IP 地址段
+    - 区分 192.168.1.1 或 192.168.1.0/24 或 255.255.255.0
+    - 子网掩码用于判断两个 IP 地址是否在同一个子网内
+- NAT：网络地址转换
+    - 用于将局域网内的多个主机共享一个公网 IP 地址
+    - 通过修改 IP 数据包的源地址和目的地址来实现
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# Part.2 传输层协议 TCP 与 UDP
+
+</div>
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 背景：OSI 模型与 TCP/IP 模型
+
+<div class="mul-cols">
+<div class="col">
+
+OSI 七层模型
+- <ruby>应用层<rp>（</rp><rt>Application layer</rt><rp>）</rp></ruby>：浏览器
+- <ruby>表示层<rp>（</rp><rt>Presentation layer</rt><rp>）</rp></ruby>
+- <ruby>会话层<rp>（</rp><rt>Session layer</rt><rp>）</rp></ruby>
+- <ruby>传输层<rp>（</rp><rt>Transport layer</rt><rp>）</rp></ruby>：TCP 和 UDP
+- <ruby>网络层<rp>（</rp><rt>Network layer</rt><rp>）</rp></ruby>：IP
+- <ruby>数据链路层<rp>（</rp><rt>Data link layer</rt><rp>）</rp></ruby>：以太网 / Wi-Fi
+- <ruby>物理层<rp>（</rp><rt>Physical layer</rt><rp>）</rp></ruby>：网卡 / 路由器
+
+</div>
+<div class="col">
+
+TCP/IP 四层模型
+- <ruby>应用层<rp>（</rp><rt>Application layer</rt><rp>）</rp></ruby>
+- <ruby>传输层<rp>（</rp><rt>Transport layer</rt><rp>）</rp></ruby>
+- <ruby>网络层<rp>（</rp><rt>Internet layer</rt><rp>）</rp></ruby>
+- <ruby>链接层<rp>（</rp><rt>Link layer</rt><rp>）</rp></ruby>
+
+</div>
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## TCP 与 UDP
+
+- TCP：<ruby>传输控制协议<rp>（</rp><rt>Transmission Control Protocol</rt><rp>）</rp></ruby>：面向连接的协议
+    - 通过复杂的握手、确认、重传等机制保证数据的顺序和可靠性
+- UDP：<ruby>用户数据报协议<rp>（</rp><rt>User Datagram Protocol</rt><rp>）</rp></ruby>：无连接；"send and forget"
+    - 更简单且快速；单向传输，不保证顺序，不保证可靠性
+
+<div class="fragment">
+
+<div class="center">
+<img src="lec6/tcp-udp-meme.avif" width="40%" style="margin: 0 auto;">
+
+来源：[lisanne_waifu @ Instagram](https://www.instagram.com/p/CGadvmbFepx/)
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 端口
+
+- 软件层面的通信端点，与 IP 地址一起构成网络通信的基础
+    - IP 地址识别机器，端口号识别软件（服务）
+    - TCP 与 UDP 的端口号是分开的，即同一个端口号可以同时用于 TCP 和 UDP
+    - 可以设置只监听（**bind**）某个 IP 地址的某个端口号
+- 端口号的范围是 0~65535
+    - 其中 0~1023 为系统保留端口，一般不用于通用服务
+
+<div class="fragment">
+
+- 一般情况下，不同的软件使用不同的端口号
+    - 通过端口号可以区分不同的服务，例如 HTTP 的分配端口是 TCP 80
+        - 即 <http://10.78.18.216> 就是 <http://10.78.18.216:80>
+        - 否则需要写明端口号，如 <http://10.78.18.216:39200>
+        - 稍后在讲 HTTP 时会加深理解
+</div>
+
+<div class="fragment">
+
+- 试试看！
+    - `nc 10.78.18.216 39200`
+    - `nc -u 10.78.18.216 39200`
+
+</div>
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# Part.3 域名系统与 DNS
+
+</div>
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 域名
+
+- <ruby>域名<rp>（</rp><rt>Domain Name</rt><rp>）</rp></ruby>用于标识互联网上的计算机
+    - 由一串用 . 分隔的字符串组成，例如 [example.com](https://example.com)
+    - 最右侧的部分称为<ruby>**顶级域名**<rp>（</rp><rt>Top-Level Domain</rt><rp>）</rp></ruby>：.com .net .org .cn 等
+    - 从右至左依次为二级、三级域名等：[www.example.com](https://www.example.com)
+- 如何拥有一个域名？
+    - 在**域名注册商**处购买，如阿里云、腾讯云、Cloudflare 等
+    - 根据域名的 TLD、长度等因素，价格从几元到几千元不等（每年）
+- 拥有一个域名意味着拥有在互联网上的一个身份
+    - 域名并不是只能用于网站，还可以用于很多其他用途，如邮箱
+    - 可以设置任意多的子域名，如 blog.example.com 等
+- 只拥有一个域名是不够的！
+    - 还需要有东西可以访问（一个服务器）
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## DNS 协议
+
+```console
+$ nslookup www.zju.edu.cn
+Server:     10.10.0.21
+Address:    10.10.0.21#53
+
+Name:       www.zju.edu.cn
+Address:    10.203.4.70
+```
+
+[www.zju.edu.cn](https://www.zju.edu.cn) 的内网 IP 就是 10.203.4.70
+
+```console
+$ ping -c2 www.zju.edu.cn
+PING www.zju.edu.cn (10.203.4.70): 56 data bytes
+64 bytes from 10.203.4.70: icmp_seq=0 ttl=60 time=11.235 ms
+64 bytes from 10.203.4.70: icmp_seq=1 ttl=60 time=7.333 ms
+
+--- www.zju.edu.cn ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 7.333/9.284/11.235/1.951 ms
+```
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## DNS 记录
+
+- 域名下面可以有任意多条 **DNS 记录**
+    - DNS 服务商可以和域名注册商不同
+    - 记录了如何处理对域名的请求，如 IP 地址、邮箱服务器等
+    - 将域名映射到 IPv4 的记录称为 **A 记录**
+    - 还有 AAAA（IPv6）、MX（邮箱）、CNAME（别名）、TXT（文本信息）等
+    - 记录的 TTL（Time To Live）表示该记录的缓存时间（见下页）
+
+```console
+$ nslookup -query=txt 45gfg9.net
+Server:     10.10.0.21
+Address:    10.10.0.21#53
+
+Non-authoritative answer:
+45gfg9.net  text = "v=spf1 include:5943b80cxdpydy4.spf.skiff.com -all"
+45gfg9.net  text = "oRAKQGGkRmqa26Gq40GEWu81UGBOoW3TjU8ACkgnp3+gGvKXhDlmCYScB80jfYu+Y+zY0Q3u125wHUcssCahxBnn+We9f7CXMEEHa1xIe825WAixRAeFmx65zuUf31AhVfafcUa3jlGpVx3gvKzwJdghXu5LaHADexzYpD12KCDEuXBCgvxmXYSMi40pfvjVDeZoYY8QG9sa/bjAljSULg=="
+```
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## DNS 服务器
+
+- 访问一个域名时，计算机会向**DNS 服务器**查询域名对应的 DNS 记录
+    - DNS 服务器有可能继续向其他 DNS 服务器查询，直到找到所需的记录
+    - 一般来说，DNS 服务器会缓存查询结果，以减少查询时间（TTL）
+    - DNS 的分配端口是 TCP/UDP 53
+
+<br>
+
+- 笑点解析：Google 面试官最爱问的问题
+    - 请说明从输入一个地址到显示网页的整个过程，越详细越好
+
+<br>
+
+Further reading:
+- [Web 机制 - MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/Web_mechanics)
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# Part.4 应用层协议 HTTP
+
+</div>
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## HTTP 协议
+
+- <ruby>超文本传输协议<rp>（</rp><rt>HyperText Transfer Protocol</rt><rp>）</rp></ruby>
+- 是基于文本的协议，用于在客户端和服务器之间传输网页
+
+```http
+GET / HTTP/1.1
+Host: www.example.com
+
+
+```
+试试看：`nc 93.184.215.14 80`
+
+<div class="fragment">
+
+```http
+HTTP/1.1 200 OK
+Content-Type: text/html; charset=UTF-8
+Date: Wed, 08 May 2024 11:31:18 GMT
+Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
+Content-Length: 1256
+
+<!doctype html>
+...
+```
+
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 客户端-服务器（C/S）架构
+
+- 任何一台计算机都可以作为服务器
+- 发起连接的节点是客户端，接受连接的节点是服务器
+    - 在这个过程中，客户端和服务器是对等的
+    - 服务器不能主动发起连接，只能等待客户端的连接
+- 服务器不一定只能处理 HTTP 请求
+    - 如 DNS 服务器
+- 服务器可以同时处理多个客户端的连接
+    - 客户端在本地选取一个空闲的高端口号，连接到服务器的 80 端口
+    - client:49152 <-> server:80
+- DoS 攻击：通过大量的无效请求占用服务器资源，使得合法请求无法被处理
+    - DDoS 攻击：分布式拒绝服务攻击
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## URL：统一资源定位符
+
+<div class="center">
+<a href="https://commons.wikimedia.org/wiki/File:URI_syntax_diagram.svg" target="_blank"><img src="lec6/URI_syntax_diagram.svg.avif" width="100%" style="margin: 0 auto;"></a>
+</div>
+
+- URI（统一资源标识符）的一种，用于定位互联网上的资源
+    - 格式如上图，重要性由左至右递减
+
+https://www.example.com:443/path/to/resource?query=1#frag
+
+<div class="fragment">
+
+<div class="mul-cols">
+<div class="col">
+
+- 协议：https
+- 主机：www.example.com
+- 端口：443
+
+</div>
+<div class="col">
+
+- 路径：/path/to/resource
+- 查询：query=1
+- 片段：frag
+
+</div>
+</div>
+
+</div>
+
+<div class="fragment">
+
+- URL 中只能包含 ASCII 字符，由**百分号编码**定义的字符集
+    - 例如空格编码为 %20，或有些情况下编码为 +
+    - https://www.google.com/search?q=what+is+a+url%3F
+    - [Percent-encoding - MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Glossary/Percent-encoding)
+
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 请求方法
+
+- [HTTP 请求方法 - MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Methods)
+
+试试看：`nc httpbin.org 80`
+```http
+GET /get?hello=world HTTP/1.1
+Host: httpbin.org
+
+
+```
+
+<div class="fragment">
+
+如同直接访问 <http://httpbin.org/get?hello=world>
+
+- HTTP/1.x 请求的第一行由请求方法、路径和协议版本组成
+    - GET：最常用，用于获取资源，不能有请求体
+    - POST：用于提交数据
+    - PUT 更新资源；DELETE 删除资源；HEAD 获取资源的头部信息；等等
+- 如何解释请求方法由服务器决定，不同的服务器可能有不同的实现
+
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 标头、请求体、响应体
+
+```http
+POST /post HTTP/1.1
+Host: httpbin.org
+Content-Length: 12
+Connection: close
+
+hello server
+```
+
+- [HTTP 标头 - MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/web/http/headers)
+- 标头（Header）是由键值对组成的文本，用于描述请求或响应的属性
+    - 以冒号分隔键和值，以换行符分隔不同的键值对
+    - 以空行分隔标头和正文（请求体/响应体）
+    - 不同标头有不同的含义，如 Content-Length（正文的长度）
+- 可以在浏览器的开发者工具中查看所有的 HTTP 请求及其所有内容
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## More?
+
+- nc 直接操作 TCP 流，不会自动处理 HTTP 协议，所以需要手动输入所有内容
+    - 有更方便的命令行工具，如 curl、wget 等
+    - 也可以使用浏览器的开发者工具
+
+```bash
+# 默认进行 GET 请求
+curl "http://httpbin.org/get?hello=world"
+
+# -i 显示响应头
+curl -i http://10.78.18.216:39200
+
+# -v 显示详细信息，-X 指定请求方法，-d 指定请求体
+curl -v -X POST http://httpbin.org/post -d 'hello server'
+```
+
+Further reading:
+
+- [Ncat User's Guide / Basic usage](https://nmap.org/ncat/guide/ncat-usage.html)
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# Part.5 Web 三剑客
+
+HTML、JavaScript 与 CSS
+
+</div>
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## HTML：超文本标记语言
+
+HTML 不是编程语言！
+
+```html [|1-2,9|3-5|6-8|]
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practical Skills Tutorial</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>
+```
+
+<div class="fragment" class="center">
+
+<iframe src="data:text/html;base64,PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KICAgIDx0aXRsZT5QcmFjdGljYWwgU2tpbGxzIFR1dG9yaWFsPC90aXRsZT4KPC9oZWFkPgo8Ym9keT4KICAgIDxoMT5IZWxsbywgV29ybGQhPC9oMT4KPC9ib2R5Pgo8L2h0bWw+Cg==" width="100%" height="200"></iframe>
+
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## HTML 的基本语法
+
+- 由**标签**组成，标签用尖括号包围，类似于 XML
+
+```html
+<span>里面是 span 标签的内容</span>
+<div>
+    这是 div 标签的内容
+    <p>这是 div 里面的一个段落</p>
+</div>
+```
+
+- 树状结构：所有的 HTML 文档都应该包含在 `<html>` 标签中
+    - 其中分 `<head>` 和 `<body>` 标签，分别包含文档的元数据和正文
+    - 在之前应当有 [`<!DOCTYPE html>`](https://developer.mozilla.org/zh-CN/docs/Glossary/Doctype) 声明表示这是一个 HTML5 文档
+- 标签可以有**属性**，用于提供标签的额外信息
+
+```html
+<a href="https://example.com">点击前往 example.com</a>
+<img src="example.png" alt="这是一个图片">
+```
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## JavaScript
+
+- 是编程语言，Web 的核心技术之一
+    - JavaScript 是遵循 **ECMAScript 标准**的脚本语言
+    - 与 Java 没有任何关系
+    - 现在也可用于通用编程：Node.js
+- 用于实现网页的交互功能，由 `<script>` 标签引入
+
+```html
+<script>
+console.log('Hello, World!');
+
+fetch('https://api.example.com')
+    .then(response => response.json())
+    .then(data => document.body.innerHTML = data.message);
+__SCRIPT_END__
+<script async src="my-super-cool-script.js">__SCRIPT_END__
+```
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## CSS：层叠样式表
+
+- 不是编程语言，也不是标记语言，而是样式表语言
+    - 用于描述网页的样式、布局和呈现方式
+    - 字体、颜色、段落间距、边框、背景、位置等一切视觉效果
+    - CSS 选择器：规定了 CSS 规则会被应用到哪些元素上
+    - 仅用 CSS 也可以实现非常复杂的动画效果
+
+```css
+body {
+    font-family: "JetBrains Mono", "LXGW WenKai Screen", sans-serif;
+    background-image: url('background.png');
+}
+```
+```html
+<link rel="stylesheet" href="custom.css">
+```
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 搭建自己的网站
+
+- 静态网页：完全“按原样”呈现给浏览器的网页
+    - 由 HTML、CSS 和 JavaScript 组成，可能含有图片、视频等静态资源
+    - 需要发送给客户端的所有文件都是用户可以查看源代码的
+- 动态网页：根据用户的请求动态生成内容的网页
+    - 通常由服务器端的程序生成，如 Java、PHP、Python、Node.js 等
+    - 也即，需要一个能够运行此种程序的服务器
+    - 程序的代码对客户端不可见，客户端只能看到生成的结果（HTML）
+
+<div class="fragment">
+
+- 有不少免费的静态网页托管服务，如 [GitHub Pages](https://pages.github.com)
+    - 静态网页/博客生成器：[Hexo](https://hexo.io)、[Jekyll](https://jekyllrb.com)、[MkDocs](https://www.mkdocs.org) 等
+    - 用于构建用户界面的库：[Tailwind CSS](https://tailwindcss.com)、[React](https://react.dev)、[Vue.js](https://vuejs.org) 等
+- [WordPress](https://wordpress.org)：开源、完整的<ruby>内容管理系统<rp>（</rp><rt>Content Management System</rt><rp>）</rp></ruby>，由 PHP 编写
+    - 用于构建个人博客、企业网站等，有大量的插件和主题
+
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 网页服务器
+
+- 用于处理 HTTP 请求的软件
+    - 例如 Apache、Nginx、IIS 等
+    - 也可以使用 Node.js、Python 等编程语言的库
+
+<br>
+
+Further reading:
+
+- [HTML - MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Web/HTML)
+- [JavaScript - MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)
+- [CSS - MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/Web/CSS)
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# Part.6 TLS 与现代网络安全
+
+</div>
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## HTTP 与 HTTPS
+
+- HTTP 的**一切**都是明文传输
+    - 两个节点间的任何一个中间节点都可以窃听并干预通信内容
+- HTTPS：HTTP over TLS
+    - <ruby>传输层安全协议<rp>（</rp><rt>Transport Layer Security</rt><rp>）</rp></ruby>，旧称<ruby>安全套接层<rp>（</rp><rt>Secure Sockets Layer</rt><rp>）</rp></ruby>
+    - 不只是 HTTP，任何应用层协议都可以透明地使用 TLS
+    - 通过加密、认证和完整性保护来保护通信内容
+    - [The Illustrated TLS Connection: Every Byte Explained](https://tls12.xargs.org)
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 通信安全：对称加密
+
+- 对称加密算法：如 AES、ChaCha20 等
+    - Alice 和 Bob 如何确保他们的消息是安全的？
+    - Alice 用密钥 $K$ 加密消息 $M$，得到 $C$，发送给 Bob
+    - Bob 用密钥 $K$ 解密 $C$，得到 $M$
+    - 但两人如何协商密钥 $K$？
+        - 通过线下见面交换 $K$？
+        - 随 $C$ 一起发送 $K$？
+            - 任何拿到 $K$ 的人都可以用其解密 $C$
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 现代密码学：Diffie-Hellman 密钥交换
+
+- 1976 年发明，公钥密码学的基础
+- 基于数学假设：离散对数问题（DLP）是困难的
+- Alice 和 Bob 如何确保他们的通信能够保密？
+    - 设 Alice 的秘密值 $a$，Bob 的秘密值 $b$
+    - 两人事前约定两个公开参数 $p$ 和 $g$，所有运算都在模 $p$ 群上进行
+    - Alice 计算 $g^a$，Bob 计算 $g^b$
+    - 两人通过公开信道交换 $g^a$ 和 $g^b$，在这之间可能存在窃听者 Eve
+    - Alice 计算 $(g^b)^a$，Bob 计算 $(g^a)^b$
+    - Eve 可能窃听到 $g^a$ 和 $g^b$，她也知道 $p$ 和 $g$，如何求解 $g^{ab}$？
+        - 如果 $p$ 和 $g$ 很大？
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 非对称密码学：RSA 与 ECC
+
+- RSA 公钥密码学
+    - 基于数学假设：大整数的因数分解是困难的
+    - 有两个很大的质数 $p$ 和 $q$，计算 $pq$ 是非常容易的
+    - 但给定 $pq$，要分解出 $p$ 和 $q$ 是困难的
+- ECC 椭圆曲线密码学
+    - 基于椭圆曲线上的离散对数问题（ECDLP），类似 Diffie-Hellman 密钥交换
+    - $g$ 是椭圆曲线上的一个公开点，$a$ 是秘密值，计算 $a \cdot g$ 是容易的
+    - 但给定 $g$ 和 $a \cdot g$，要找到 $a$ 是困难的
+    - 相比 RSA，ECC 能够在更短的密钥长度下提供相同的安全性
+- 后量子密码学：基于格、哈希函数、代码等构建的密码学
+    - <https://eprint.iacr.org/2024/555>
+    - AES 等对称加密算法不受量子计算机的影响
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 中间人攻击
+
+- Diffie-Hellman 密钥交换仍然不能解决中间人攻击
+- Eve 可能伪装成 Bob
+    - Alice 一直在和 Eve 通信，而真正的 Bob 从来没有参与过
+- 或者，如果 Eve 能从一开始就截获 Alice 和 Bob 之间的通信
+    - Eve 先伪装成 Bob 和 Alice 交换密钥，得到 $K_1$
+    - Eve 再伪装成 Alice 和 Bob 交换密钥，得到 $K_2$
+    - Alice 用 $K_1$ 加密的消息全都被 Eve 截获并解密
+    - 然后 Eve 用 $K_2$ 伪装成 Alice 继续和 Bob 通信
+    - Eve 可以在 Alice 和 Bob 之间任意篡改通信内容
+    - 在此过程中，Alice 和 Bob 都不知道自己在和 Eve 通信
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## TLS 证书与 CA
+
+- 证书：数字签名的公钥
+    - 由一个双方都相信的第三者 Charlie 签发，Charlie 就是 CA
+    - Charlie 通过其他安全手段验证 Bob 的身份，签发 Bob 的证书
+        - 相当于 Charlie 为 Bob 的身份背书
+    - Bob 在交换密钥的同时发送自己的证书，以证明自己是真的 Bob
+    - 如果 Alice 信任 Charlie，那么她也会信任 Bob 的证书进而信任 Bob
+    - Eve 无法伪造 Bob 的证书，因为她无法向 Charlie 证明自己是 Bob
+- 如何确保 CA 是可信的？
+    - 由操作系统或浏览器内置的 CA 列表：**根证书**，[约 150 个](https://ccadb.my.salesforce-sites.com/mozilla/IncludedCACertificateReport)
+    - 根证书是自签名的且被信任，其签发一系列中间证书，中间证书签发终端证书
+    - 不守规矩的 CA 会被吊销证书，不再被信任（WoSign 违规事件，2016）
+    - [证书透明度](https://developer.mozilla.org/zh-CN/docs/Web/Security/Certificate_Transparency)：公开 CA 签发的证书，防止 CA 恶意签发证书
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## TLS 证书与 CA
+
+<div class="center">
+<img src="lec6/zju-cert.avif" width="65%" style="margin: 0 auto;">
+
+<https://www.zju.edu.cn> 的证书链
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## mTLS
+
+- 一般来说，服务器需要向客户端证明自己
+- 在有些情况下，客户端也需要向服务器证明自己
+    - 例如服务器需要验证客户端是否有权限访问某些资源
+- mTLS：Mutual TLS
+    - 客户端和服务器都需要向对方提供证书
+    - 相互验证对方的证书
+    - 相比于传统的帐密验证，mTLS 更加安全，但设置也更复杂
+
+</script></section></section><section ><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+<div class="middle center">
+<div style="width: 100%">
+
+# Part.7 Beyond
+
+</div>
+</div>
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## HTTP/2，HTTP/3 与 QUIC
+
+
+- HTTP/1.1 是基于 TCP 的文本协议
+    - 一个连接只能处理一个请求；请求和响应是串行的
+    - 受到 TCP 的慢启动、阻塞等机制的影响
+<a href="https://commons.wikimedia.org/wiki/File:HTTP-1.1_vs._HTTP-2_vs._HTTP-3_Protocol_Stack.svg" target="_blank"><img src="lec6/protocol-stack.svg.avif" align="right" width="30%" style="padding-right: 30px;"></a>
+- HTTP/2 是基于 TCP 的二进制协议，不再人类可读
+    - 通过压缩标头、多路复用等机制提高性能
+    - 多个请求可以在一个连接上并行处理
+    - 目前已经被广泛使用
+- HTTP/3 基于 QUIC 协议
+    - QUIC 抛弃 TCP，建立在 UDP 之上
+    - 通过其他手段克服 UDP 的不可靠性
+    - [HTTP/3：过去，现在，还有未来](https://blog.cloudflare.com/zh-cn/http3-the-past-present-and-future-zh-cn/)
+    - [Does my browser support HTTP/3 & QUIC?](https://cloudflare-quic.com)
+
+</script></section><section data-markdown><script type="text/template">
+<!-- .slide: data-background="lec6/background.png" -->
+
+## 超越 JavaScript：WebAssembly
+
+<a href="https://commons.wikimedia.org/wiki/File:WebAssembly_Logo.svg" target="_blank"><img src="lec6/WebAssembly_logo.svg" align="right" width="10%" style="padding-right: 30px;"></a>
+
+- [WebAssembly - MDN Web Docs](https://developer.mozilla.org/zh-CN/docs/WebAssembly)
+- JavaScript 的缺点：性能不足（解释型）、弱类型
+- WebAssembly（WASM）：在浏览器中运行的跨平台字节码格式
+    - 由 C、C++、Rust 等编译型语言编译生成
+    - 可以直接在浏览器中运行，性能接近原生代码
+    - 可以与 JavaScript 互操作
+    - 适合于需要高性能的应用，如游戏、图像、视频处理等
+
+</script></section></section><section  data-markdown><script type="text/template">
 <!-- .slide: data-background="lec6/ending.png" -->
 </script></section></div>
     </div>
@@ -88,7 +951,7 @@
           { name: "#1 Shell 基础及 CLI 工具推荐", src: "../lec1/"},
           { name: "#2 Git/GitHub 及开源基础", src: "../lec2/"},
           { name: "#3 Markdown 语法及应用", src: "../lec3/"},
-          { name: "#4 LaTeX 排版简要介绍", src: "../lec4/"},
+          { name: "#4 LaTeX 排版简要介绍", src: "../lec4/lec4.pdf"},
           { name: "#5 如何排出规范、美观的文档", src: "../lec5/"},
           { name: "#6 网络/网站基础知识概述", src: "../lec6/"},
         ]
