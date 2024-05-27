@@ -50,10 +50,10 @@ revealOptions:
 |lec1：Shell 基础及 CLI 工具推荐|10.22（秋五周）|45gfg9|[lec1](lec1/)|[BV1ry4y1A7qo](https://www.bilibili.com/video/BV1ry4y1A7qo/)|
 |lec2：Git/GitHub 及开源基础|11.05（秋七周）|TonyCrane|[lec2](lec2/)|[BV12u4y177vG](https://www.bilibili.com/video/BV12u4y177vG/)|
 |lec3：Markdown 语法及应用|11.19（冬一周）|TonyCrane|[lec3](lec3/)|[BV1pu4y1j7kA](https://www.bilibili.com/video/BV1pu4y1j7kA/)|
-|lec4：LaTeX 排版简要介绍|12.03（冬三周）|45gfg9|[lec4](lec4/lec4.pdf)||
-|lec5：如何排出规范、美观的文档|12.17（冬五周）|TonyCrane||
-|lec6：网络/网站基础知识概述|12.31（冬七周）|45gfg9||
+|lec4：LaTeX 排版简要介绍|12.03（冬三周）|45gfg9|[lec4](lec4/lec4.pdf)|[BV1ka4y1o7S9](https://www.bilibili.com/video/BV1ka4y1o7S9/)|
+|lec5：如何排出规范、美观的文档|TBD|TonyCrane||
+|lec6：网络/网站基础知识概述|05.17（夏四周）|45gfg9|[lec6](lec6/)|[BV1nn4y1R7ZU](https://www.bilibili.com/video/BV1nn4y1R7ZU/)|
 
 </div>
 
-<p style="text-align: right; color: #888; margin-top: 0; margin-right: 2em; font-size: 21px;" class="heti-skip">*时间均为暂定</p>
+<!-- <p style="text-align: right; color: #888; margin-top: 0; margin-right: 2em; font-size: 21px;" class="heti-skip">*时间均为暂定</p> -->
